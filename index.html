@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows 12 Concept OS</title>
+    <title>Windows 12 Liquid Glass Concept OS</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Lucide Icons -->
@@ -22,29 +22,44 @@
             height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.03);
         }
         ::-webkit-scrollbar-thumb {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.45);
         }
 
-        /* Glassmorphism Styles */
-        .glass {
-            background: rgba(18, 24, 38, 0.75);
-            backdrop-filter: blur(25px) saturate(180%);
-            -webkit-backdrop-filter: blur(25px) saturate(180%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+        /* LIQUID GLASS ULTRA-REFRACTIVE STYLES */
+        .liquid-glass {
+            background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(15, 23, 42, 0.65) 100%);
+            backdrop-filter: blur(40px) saturate(210%) brightness(1.1);
+            -webkit-backdrop-filter: blur(40px) saturate(210%) brightness(1.1);
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), 
+                        inset 0 1px 0 rgba(255, 255, 255, 0.5), 
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
         }
 
-        .glass-panel {
-            background: rgba(18, 24, 38, 0.88);
-            backdrop-filter: blur(30px) saturate(190%);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        .liquid-glass-panel {
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18) 0%, rgba(15, 23, 42, 0.78) 70%);
+            backdrop-filter: blur(50px) saturate(220%);
+            -webkit-backdrop-filter: blur(50px) saturate(220%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+        }
+
+        /* Iridescent Liquid Aura Background */
+        .desktop-bg-liquid {
+            background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.5) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.45) 0%, transparent 45%),
+                        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+                        linear-gradient(135deg, #030712 0%, #0f172a 50%, #020617 100%);
+            background-size: cover;
+            background-position: center;
         }
 
         /* Win 11/12 Circle Spinner */
@@ -70,7 +85,7 @@
             height: 5px;
             border-radius: 50%;
             background: #38bdf8;
-            box-shadow: 0 0 10px #38bdf8;
+            box-shadow: 0 0 12px #38bdf8;
         }
 
         .win-spinner .dot:nth-child(2) { animation-delay: 240ms; }
@@ -101,13 +116,13 @@
 
         /* Top Panel Reveal & Magnify Down Effect */
         #top-panel {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, background-color 0.3s ease, box-shadow 0.3s ease;
             transform-origin: top center;
         }
         #top-panel:hover {
-            background: rgba(22, 30, 48, 0.95);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(56, 189, 248, 0.25);
-            border-bottom: 1px solid rgba(56, 189, 248, 0.4);
+            background: rgba(15, 23, 42, 0.92);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(56, 189, 248, 0.35);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.6);
             transform: translateY(2px) scaleY(1.03);
         }
 
@@ -121,12 +136,15 @@
         }
 
         /* Dock Bar Floating Magnify & Scale Effect */
-        #bottom-dock .glass {
+        #bottom-dock {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+        }
+        #bottom-dock .liquid-glass {
             transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        #bottom-dock:hover .glass {
+        #bottom-dock:hover .liquid-glass {
             transform: scale(1.05) translateY(-8px);
-            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 40px rgba(56, 189, 248, 0.45);
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.85), 0 0 50px rgba(56, 189, 248, 0.55);
         }
 
         /* Desktop Icon Scale Animations */
@@ -136,28 +154,19 @@
             cursor: move;
             user-select: none;
             touch-action: none;
-            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease, border-color 0.2s ease;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, background-color 0.2s ease, border-color 0.2s ease;
         }
 
         .desktop-icon-item:hover {
-            transform: scale(1.15) translateY(-6px);
+            transform: scale(1.12) translateY(-4px);
         }
 
         .desktop-icon-item:active {
             transform: scale(0.92);
         }
 
-        /* Default Desktop Wallpaper */
-        .desktop-bg-default {
-            background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.35) 0%, transparent 45%),
-                        radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.35) 0%, transparent 45%),
-                        radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%);
-            background-size: cover;
-            background-position: center;
-        }
-
-        .glow-blue {
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+        .glow-liquid {
+            box-shadow: 0 0 35px rgba(56, 189, 248, 0.3);
         }
 
         /* App Window Animations */
@@ -173,7 +182,7 @@
             0% {
                 opacity: 0;
                 transform: scale(0.3) translateY(60px);
-                filter: blur(12px);
+                filter: blur(14px);
             }
             100% {
                 opacity: 1;
@@ -191,7 +200,7 @@
             100% {
                 opacity: 0;
                 transform: scale(0.3) translateY(60px);
-                filter: blur(12px);
+                filter: blur(14px);
             }
         }
 
@@ -212,49 +221,13 @@
             gap: 12px;
             height: calc(100vh - 120px);
             width: 100%;
-        }
-
-        /* Panel & Dock Animations */
-        .dock-slide-up {
-            animation: dockSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        @keyframes dockSlideUp {
-            from { transform: translateY(80px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
         }
 
         /* Shutdown Animations */
         .shutdown-blur {
-            backdrop-filter: blur(40px) brightness(0.4);
-            -webkit-backdrop-filter: blur(40px) brightness(0.4);
-        }
-
-        .panel-slide-out {
-            animation: panelSlideOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-        }
-
-        .dock-slide-out {
-            animation: dockSlideOut 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-        }
-
-        .fade-out-icons {
-            animation: shutdownZoomHide 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards !important;
-        }
-
-        @keyframes panelSlideOut { to { transform: translateY(-80px); opacity: 0; } }
-        @keyframes dockSlideOut { to { transform: translateY(100px); opacity: 0; } }
-        @keyframes shutdownZoomHide { 
-            0% { 
-                opacity: 1; 
-                transform: scale(1); 
-                filter: blur(0px);
-            } 
-            100% { 
-                opacity: 0; 
-                transform: scale(1.3); 
-                filter: blur(8px);
-            } 
+            backdrop-filter: blur(50px) brightness(0.35);
+            -webkit-backdrop-filter: blur(50px) brightness(0.35);
         }
 
         /* Fullscreen Workspace Left Swipe Animation */
@@ -309,19 +282,30 @@
             transition: all 0.2s ease;
         }
         .quick-toggle-btn.active {
-            background-color: #38bdf8;
-            color: #0f172a;
-            border-color: #38bdf8;
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(37, 99, 235, 0.8));
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
         }
 
-        /* Drag and drop zone highlighting */
-        .drag-over {
-            border-color: #38bdf8 !important;
-            background-color: rgba(56, 189, 248, 0.15) !important;
+        /* System Shutdown Hide Classes */
+        .power-panel-hidden {
+            transform: translateY(-100%) !important;
+            opacity: 0 !important;
+        }
+
+        .power-dock-hidden {
+            transform: translateY(100%) !important;
+            opacity: 0 !important;
+        }
+
+        .power-icons-hidden {
+            transform: translateY(80px) scale(0.9) !important;
+            opacity: 0 !important;
         }
     </style>
 </head>
-<body id="os-body" class="h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100 desktop-bg-default">
+<body id="os-body" class="h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100 desktop-bg-liquid" onclick="initAudioContextOnUserGesture()">
 
     <!-- BOOT SCREEN -->
     <div id="boot-screen" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-between py-16 transition-opacity duration-1000">
@@ -329,12 +313,12 @@
             <!-- Windows 12 Fluid Logo -->
             <div class="relative mb-16 group">
                 <div class="w-28 h-28 grid grid-cols-2 gap-2 transform rotate-3 transition-transform duration-700">
-                    <div class="bg-gradient-to-br from-cyan-400 to-blue-600 rounded-2xl shadow-lg shadow-cyan-500/30"></div>
-                    <div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl shadow-lg shadow-blue-500/30"></div>
-                    <div class="bg-gradient-to-br from-sky-400 to-blue-500 rounded-2xl shadow-lg shadow-sky-500/30"></div>
-                    <div class="bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg shadow-purple-500/30"></div>
+                    <div class="bg-gradient-to-br from-cyan-300 via-blue-500 to-indigo-600 rounded-3xl shadow-2xl shadow-cyan-500/50 border border-white/40 backdrop-blur-md"></div>
+                    <div class="bg-gradient-to-br from-blue-400 via-indigo-500 to-purple-600 rounded-3xl shadow-2xl shadow-blue-500/50 border border-white/40 backdrop-blur-md"></div>
+                    <div class="bg-gradient-to-br from-sky-300 via-cyan-400 to-blue-500 rounded-3xl shadow-2xl shadow-sky-500/50 border border-white/40 backdrop-blur-md"></div>
+                    <div class="bg-gradient-to-br from-indigo-400 via-purple-500 to-pink-600 rounded-3xl shadow-2xl shadow-purple-500/50 border border-white/40 backdrop-blur-md"></div>
                 </div>
-                <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-30 rounded-full"></div>
+                <div class="absolute inset-0 bg-cyan-400 blur-3xl opacity-40 rounded-full"></div>
             </div>
 
             <!-- Windows Spinner Animation -->
@@ -342,76 +326,136 @@
                 <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
             </div>
 
-            <p class="text-slate-400 text-sm tracking-widest font-light mt-4 animate-pulse">WINDOWS 12 CONCEPT</p>
+            <p class="text-slate-300 text-sm tracking-widest font-light mt-4 animate-pulse">WINDOWS 12 LIQUID GLASS</p>
         </div>
 
-        <div class="text-xs text-slate-600 font-mono">Build 26200.NEXT_GEN.2026.RELEASE</div>
+        <div class="text-xs text-slate-500 font-mono">Build 26200.LIQUID_GLASS.2026.RELEASE</div>
+    </div>
+
+    <!-- RESTART COMMAND LINE SCREEN -->
+    <div id="restart-screen" class="fixed inset-0 z-[100] hidden bg-black flex flex-col items-start justify-end p-12 font-mono text-cyan-400">
+        <div class="space-y-2 text-xs">
+            <p>&gt; Liquid Glass display engine restarting...</p>
+            <p>&gt; Re-refracting spatial windows and blur surfaces... OK</p>
+            <p>&gt; Rebooting Windows 12 Kernel (Build 26200)... Please wait.</p>
+            <div class="flex items-center gap-2 pt-2">
+                <div class="win-spinner" style="width: 24px; height: 24px;">
+                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                </div>
+                <span class="animate-pulse text-slate-300">Rebooting system...</span>
+            </div>
+        </div>
     </div>
 
     <!-- SHUTDOWN / POWER DIALOG SCREEN -->
     <div id="shutdown-screen" class="fixed inset-0 z-50 hidden shutdown-blur flex flex-col items-center justify-center transition-all duration-500 opacity-0">
-        <div class="flex flex-col items-center max-w-md w-full p-8 rounded-3xl glass-panel border border-white/20 text-center shadow-2xl scale-95 transition-all duration-300" id="power-card">
+        <div class="flex flex-col items-center max-w-md w-full p-8 rounded-3xl liquid-glass-panel border border-white/30 text-center shadow-2xl scale-95 transition-all duration-300" id="power-card">
             <div id="power-status-icon" class="mb-6 relative">
-                <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                <div class="w-16 h-16 rounded-3xl bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center shadow-xl shadow-cyan-500/40 border border-white/40">
                     <i data-lucide="power" class="w-8 h-8 text-white"></i>
                 </div>
             </div>
 
             <h2 id="power-title" class="text-2xl font-bold text-slate-100 mb-2">Tắt nguồn Windows 12</h2>
-            <p id="power-desc" class="text-xs text-slate-400 mb-8">Hãy chọn thao tác bạn muốn thực hiện tiếp theo.</p>
+            <p id="power-desc" class="text-xs text-slate-300 mb-8">Hãy chọn thao tác bạn muốn thực hiện tiếp theo.</p>
 
             <div id="power-options" class="grid grid-cols-3 gap-3 w-full mb-6">
-                <button onclick="executePowerAction('shutdown')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/60 hover:bg-rose-500/20 hover:border-rose-500/40 border border-white/10 transition group">
+                <button onclick="executePowerAction('shutdown')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/5 hover:bg-rose-500/20 hover:border-rose-500/40 border border-white/10 transition group">
                     <i data-lucide="power" class="w-6 h-6 text-rose-400 mb-2 group-hover:scale-110 transition"></i>
                     <span class="text-xs font-semibold text-slate-200">Tắt máy</span>
                 </button>
-                <button onclick="executePowerAction('restart')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/60 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/10 transition group">
+                <button onclick="executePowerAction('restart')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/5 hover:bg-cyan-500/20 hover:border-cyan-500/40 border border-white/10 transition group">
                     <i data-lucide="refresh-cw" class="w-6 h-6 text-cyan-400 mb-2 group-hover:scale-110 transition"></i>
                     <span class="text-xs font-semibold text-slate-200">Khởi động lại</span>
                 </button>
-                <button onclick="executePowerAction('sleep')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-slate-900/60 hover:bg-indigo-500/20 hover:border-indigo-500/40 border border-white/10 transition group">
+                <button onclick="executePowerAction('sleep')" class="flex flex-col items-center justify-center p-4 rounded-2xl bg-white/5 hover:bg-indigo-500/20 hover:border-indigo-500/40 border border-white/10 transition group">
                     <i data-lucide="moon" class="w-6 h-6 text-indigo-400 mb-2 group-hover:scale-110 transition"></i>
                     <span class="text-xs font-semibold text-slate-200">Ngủ đông</span>
                 </button>
             </div>
 
-            <button onclick="closeShutdownMenu()" class="text-xs text-slate-400 hover:text-white px-5 py-2 rounded-xl hover:bg-white/10 transition">
+            <button onclick="closeShutdownMenu()" class="text-xs text-slate-300 hover:text-white px-5 py-2 rounded-xl hover:bg-white/10 transition">
                 Hủy bỏ
             </button>
         </div>
     </div>
 
+    <!-- START MENU WINDOW -->
+    <div id="start-menu" class="hidden absolute bottom-20 left-1/2 -translate-x-1/2 w-96 liquid-glass-panel rounded-3xl p-6 shadow-2xl border border-white/30 z-50 transition-all duration-300">
+        <div class="relative mb-5">
+            <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-3 text-slate-300"></i>
+            <input type="text" placeholder="Tìm kiếm ứng dụng, cài đặt..." class="w-full bg-white/10 text-xs text-slate-100 pl-10 pr-4 py-2.5 rounded-2xl border border-white/20 focus:outline-none focus:border-cyan-400 transition placeholder-slate-400">
+        </div>
+
+        <div class="text-xs font-semibold text-slate-300 mb-3 px-1">Ứng dụng đã ghim</div>
+        <div class="grid grid-cols-4 gap-3 mb-6">
+            <button onclick="openWindow('taskmgr'); toggleStartMenu();" class="flex flex-col items-center p-3 rounded-2xl hover:bg-white/10 transition group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                    <i data-lucide="activity" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-[11px] mt-2 text-slate-200">Task Mgr</span>
+            </button>
+
+            <button onclick="openWindow('mediaplayer'); toggleStartMenu();" class="flex flex-col items-center p-3 rounded-2xl hover:bg-white/10 transition group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-rose-500 to-pink-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                    <i data-lucide="music" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-[11px] mt-2 text-slate-200">Media</span>
+            </button>
+
+            <button onclick="openWindow('settings'); toggleStartMenu();" class="flex flex-col items-center p-3 rounded-2xl hover:bg-white/10 transition group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 to-slate-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                    <i data-lucide="settings" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-[11px] mt-2 text-slate-200">Cài đặt</span>
+            </button>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 flex items-center justify-center font-bold text-xs">W12</div>
+                <div>
+                    <div class="text-xs font-semibold text-slate-100">Administrator</div>
+                    <div class="text-[10px] text-slate-400">admin@win12.liquid</div>
+                </div>
+            </div>
+            <button onclick="toggleStartMenu(); showShutdownMenu();" class="p-2 rounded-xl hover:bg-white/10 text-rose-400 hover:text-rose-300 transition" title="Nguồn">
+                <i data-lucide="power" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- CONTROL CENTER QUICK SETTINGS DIALOG -->
-    <div id="control-center" class="hidden absolute top-12 right-4 w-80 glass-panel rounded-3xl p-5 shadow-2xl border border-white/20 z-50 transition-all duration-300">
+    <div id="control-center" class="hidden absolute top-12 right-4 w-80 liquid-glass-panel rounded-3xl p-5 shadow-2xl border border-white/30 z-50 transition-all duration-300">
         <div class="grid grid-cols-3 gap-3 mb-4">
-            <button onclick="toggleQuickSetting(this, 'wifi')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:bg-cyan-500/20 transition">
+            <button onclick="toggleQuickSetting(this, 'wifi')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-cyan-500/20 transition">
                 <i data-lucide="wifi" class="w-5 h-5 mb-1"></i>
                 <span class="text-[11px] font-medium">Wi-Fi</span>
             </button>
-            <button onclick="toggleQuickSetting(this, 'bluetooth')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:bg-cyan-500/20 transition">
+            <button onclick="toggleQuickSetting(this, 'bluetooth')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-cyan-500/20 transition">
                 <i data-lucide="bluetooth" class="w-5 h-5 mb-1"></i>
                 <span class="text-[11px] font-medium">Bluetooth</span>
             </button>
-            <button onclick="toggleQuickSetting(this, 'airplane')" class="quick-toggle-btn flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:bg-cyan-500/20 transition">
+            <button onclick="toggleQuickSetting(this, 'airplane')" class="quick-toggle-btn flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-cyan-500/20 transition">
                 <i data-lucide="plane" class="w-5 h-5 mb-1"></i>
                 <span class="text-[11px] font-medium">Máy bay</span>
             </button>
-            <button onclick="toggleQuickSetting(this, 'nightlight')" class="quick-toggle-btn flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:bg-cyan-500/20 transition">
+            <button onclick="toggleQuickSetting(this, 'nightlight')" class="quick-toggle-btn flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-cyan-500/20 transition">
                 <i data-lucide="sun-medium" class="w-5 h-5 mb-1"></i>
                 <span class="text-[11px] font-medium">Đèn đêm</span>
             </button>
-            <button onclick="toggleQuickSetting(this, 'darkmode')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:bg-cyan-500/20 transition">
+            <button onclick="toggleQuickSetting(this, 'darkmode')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-cyan-500/20 transition">
                 <i data-lucide="moon" class="w-5 h-5 mb-1"></i>
                 <span class="text-[11px] font-medium">Dark Mode</span>
             </button>
-            <button onclick="toggleQuickSetting(this, 'battery')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-slate-900/60 border border-white/10 hover:bg-cyan-500/20 transition">
+            <button onclick="toggleQuickSetting(this, 'battery')" class="quick-toggle-btn active flex flex-col items-center justify-center p-3 rounded-2xl bg-white/5 border border-white/10 hover:bg-cyan-500/20 transition">
                 <i data-lucide="battery-charging" class="w-5 h-5 mb-1"></i>
                 <span class="text-[11px] font-medium">Tiết kiệm</span>
             </button>
         </div>
 
         <!-- Volume & Brightness Sliders -->
-        <div class="space-y-3 bg-slate-900/50 p-3.5 rounded-2xl border border-white/5">
+        <div class="space-y-3 bg-white/5 p-3.5 rounded-2xl border border-white/10">
             <div class="flex items-center gap-3">
                 <i data-lucide="volume-2" class="w-4 h-4 text-cyan-400"></i>
                 <input type="range" min="0" max="100" value="80" oninput="setSystemVolume(this.value)" class="w-full accent-cyan-400 cursor-pointer h-1.5 bg-slate-800 rounded-lg">
@@ -423,7 +467,7 @@
         </div>
 
         <div class="mt-4 pt-3 border-t border-white/10 flex justify-between items-center text-xs">
-            <span class="text-slate-400"><i data-lucide="battery-charging" class="w-3.5 h-3.5 inline text-emerald-400 mr-1"></i> 98% (Đang sạc)</span>
+            <span class="text-slate-300"><i data-lucide="battery-charging" class="w-3.5 h-3.5 inline text-emerald-400 mr-1"></i> 98% (Đang sạc)</span>
             <button onclick="openWindow('settings'); toggleControlCenter();" class="text-cyan-400 hover:underline text-[11px]">Cài đặt chi tiết &gt;</button>
         </div>
     </div>
@@ -433,30 +477,30 @@
         
         <!-- Hover zone for Fullscreen exit control -->
         <div id="fullscreen-hover-zone" class="fullscreen-hover-trigger hidden fixed top-0 left-0 right-0 h-4 z-[75]">
-            <div class="fullscreen-hover-bar bg-slate-900/90 backdrop-blur-xl border border-white/20 rounded-b-2xl px-4 py-1.5 flex items-center gap-3 shadow-2xl">
-                <span id="fullscreen-app-title" class="text-xs font-semibold text-slate-300">Application - Fullscreen Workspace</span>
-                <button onclick="exitFullscreenApp()" class="flex items-center gap-1.5 bg-rose-500/20 hover:bg-rose-500/40 text-rose-300 px-2.5 py-1 rounded-xl text-xs font-medium border border-rose-500/30 transition">
+            <div class="fullscreen-hover-bar liquid-glass rounded-b-2xl px-4 py-1.5 flex items-center gap-3 shadow-2xl">
+                <span id="fullscreen-app-title" class="text-xs font-semibold text-slate-200">Application - Fullscreen Workspace</span>
+                <button onclick="exitFullscreenApp()" class="flex items-center gap-1.5 bg-rose-500/20 hover:bg-rose-500/40 text-rose-200 px-2.5 py-1 rounded-xl text-xs font-medium border border-rose-500/30 transition">
                     <i data-lucide="minimize-2" class="w-3.5 h-3.5"></i>
                     <span>Thoát Toàn Màn Hình</span>
                 </button>
             </div>
         </div>
 
-        <!-- FIXED TOP PANEL BAR WITH SLIDE-DOWN & MAGNIFY EFFECT -->
-        <header id="top-panel" class="w-full h-9 px-4 glass flex items-center justify-between z-40 shadow-lg border-b border-white/10 panel-slide-down">
+        <!-- FIXED TOP PANEL BAR -->
+        <header id="top-panel" class="w-full h-9 px-4 liquid-glass flex items-center justify-between z-40 shadow-lg border-b border-white/20 panel-slide-down">
             <!-- Left Side Info / Activities -->
             <div class="flex items-center gap-3">
-                <button onclick="toggleStartMenu()" class="flex items-center gap-1.5 hover:bg-white/10 px-2.5 py-1 rounded-lg transition text-xs font-semibold text-slate-200">
+                <button onclick="toggleStartMenu()" class="flex items-center gap-1.5 hover:bg-white/15 px-2.5 py-1 rounded-lg transition text-xs font-semibold text-slate-100">
                     <div class="w-3.5 h-3.5 grid grid-cols-2 gap-0.5 transform rotate-3">
-                        <div class="bg-cyan-400 rounded-xs"></div>
-                        <div class="bg-blue-500 rounded-xs"></div>
-                        <div class="bg-sky-400 rounded-xs"></div>
-                        <div class="bg-indigo-500 rounded-xs"></div>
+                        <div class="bg-cyan-300 rounded-xs shadow-sm"></div>
+                        <div class="bg-blue-400 rounded-xs shadow-sm"></div>
+                        <div class="bg-sky-300 rounded-xs shadow-sm"></div>
+                        <div class="bg-purple-400 rounded-xs shadow-sm"></div>
                     </div>
-                    <span>Windows 12</span>
+                    <span>Windows 12 Liquid</span>
                 </button>
-                <div class="h-3.5 w-[1px] bg-white/15"></div>
-                <button class="flex items-center gap-2 hover:bg-white/10 px-2.5 py-1 rounded-lg transition text-xs text-slate-300">
+                <div class="h-3.5 w-[1px] bg-white/20"></div>
+                <button class="flex items-center gap-2 hover:bg-white/15 px-2.5 py-1 rounded-lg transition text-xs text-slate-200">
                     <i data-lucide="cloud-sun" class="w-3.5 h-3.5 text-amber-400"></i>
                     <span>TP. Hồ Chí Minh 31°C</span>
                 </button>
@@ -465,24 +509,24 @@
             <!-- Center Clock & Search Bar -->
             <div class="flex items-center gap-3">
                 <div class="relative w-64">
-                    <i data-lucide="search" class="w-3 h-3 absolute left-2.5 top-2 text-slate-400"></i>
-                    <input type="text" placeholder="Tìm kiếm ứng dụng, tệp..." class="w-full bg-slate-900/50 text-[11px] text-slate-100 pl-7 pr-3 py-0.5 rounded-md border border-white/10 focus:outline-none focus:border-cyan-400/50 transition">
+                    <i data-lucide="search" class="w-3 h-3 absolute left-2.5 top-2 text-slate-300"></i>
+                    <input type="text" placeholder="Tìm kiếm ứng dụng, tệp..." class="w-full bg-white/10 text-[11px] text-slate-100 pl-7 pr-3 py-0.5 rounded-lg border border-white/20 focus:outline-none focus:border-cyan-400 transition placeholder-slate-400">
                 </div>
             </div>
 
             <!-- Right Side System Tray / Control Center Trigger -->
             <div class="flex items-center gap-2">
-                <button onclick="toggleControlCenter()" class="flex items-center gap-2.5 hover:bg-white/15 px-2.5 py-1 rounded-lg transition text-xs text-slate-300 active:scale-95" title="Control Center">
+                <button onclick="toggleControlCenter()" class="flex items-center gap-2.5 hover:bg-white/20 px-2.5 py-1 rounded-lg transition text-xs text-slate-200 active:scale-95" title="Control Center">
                     <i data-lucide="wifi" class="w-3.5 h-3.5 text-cyan-400"></i>
                     <i data-lucide="volume-2" class="w-3.5 h-3.5"></i>
                     <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-emerald-400"></i>
                 </button>
 
-                <div class="h-3.5 w-[1px] bg-white/15"></div>
+                <div class="h-3.5 w-[1px] bg-white/20"></div>
 
-                <div onclick="toggleControlCenter()" class="text-right flex items-center gap-2 cursor-pointer hover:bg-white/15 px-2 py-1 rounded-lg transition text-xs active:scale-95">
-                    <span id="clock" class="font-semibold text-slate-100">12:00</span>
-                    <span id="date" class="text-[10px] text-slate-400">21/10/2026</span>
+                <div onclick="toggleControlCenter()" class="text-right flex items-center gap-2 cursor-pointer hover:bg-white/20 px-2 py-1 rounded-lg transition text-xs active:scale-95">
+                    <span id="clock" class="font-semibold text-white">12:00</span>
+                    <span id="date" class="text-[10px] text-slate-300">22/10/2026</span>
                 </div>
             </div>
         </header>
@@ -493,143 +537,215 @@
             <!-- DESKTOP WORKSPACE & ICONS -->
             <main id="desktop-icons" class="desktop-icons-container flex-1 relative my-2 p-2 transition-all duration-500">
                 
-                <!-- Desktop Icon 1: This PC -->
-                <div id="icon-explorer" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('explorer')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/15 active:bg-white/25 transition group border border-transparent hover:border-white/20 hover:shadow-xl hover:shadow-cyan-500/10">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300">
-                        <i data-lucide="folder" class="w-6 h-6 text-white"></i>
+                <!-- Desktop Icon 1: Task Manager -->
+                <div id="icon-taskmgr" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('taskmgr')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/20 active:bg-white/30 transition group border border-transparent hover:border-white/30 hover:shadow-2xl hover:shadow-emerald-500/20">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 border border-white/30">
+                        <i data-lucide="activity" class="w-6 h-6 text-white"></i>
                     </div>
-                    <span class="text-[11px] text-center mt-1 text-slate-200 drop-shadow font-medium truncate w-full px-1">This PC</span>
+                    <span class="text-[11px] text-center mt-1 text-slate-100 drop-shadow font-medium truncate w-full px-1">Task Mgr</span>
                 </div>
 
                 <!-- Desktop Icon 2: Media Player -->
-                <div id="icon-mediaplayer" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('mediaplayer')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/15 active:bg-white/25 transition group border border-transparent hover:border-white/20 hover:shadow-xl hover:shadow-pink-500/10">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-500 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300">
+                <div id="icon-mediaplayer" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('mediaplayer')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/20 active:bg-white/30 transition group border border-transparent hover:border-white/30 hover:shadow-2xl hover:shadow-pink-500/20">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-rose-500 to-pink-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 border border-white/30">
                         <i data-lucide="music" class="w-6 h-6 text-white"></i>
                     </div>
-                    <span class="text-[11px] text-center mt-1 text-slate-200 drop-shadow font-medium truncate w-full px-1">Media Player</span>
+                    <span class="text-[11px] text-center mt-1 text-slate-100 drop-shadow font-medium truncate w-full px-1">Media Player</span>
                 </div>
 
                 <!-- Desktop Icon 3: Settings -->
-                <div id="icon-settings" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('settings')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/15 active:bg-white/25 transition group border border-transparent hover:border-white/20 hover:shadow-xl hover:shadow-slate-500/10">
-                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-slate-600 to-slate-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300">
+                <div id="icon-settings" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('settings')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/20 active:bg-white/30 transition group border border-transparent hover:border-white/30 hover:shadow-2xl hover:shadow-cyan-500/20">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-cyan-600 to-slate-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 border border-white/30">
                         <i data-lucide="settings" class="w-6 h-6 text-white"></i>
                     </div>
-                    <span class="text-[11px] text-center mt-1 text-slate-200 drop-shadow font-medium truncate w-full px-1">Cài đặt</span>
+                    <span class="text-[11px] text-center mt-1 text-slate-100 drop-shadow font-medium truncate w-full px-1">Cài đặt</span>
                 </div>
             </main>
 
-            <!-- FLOATING DOCK TASKBAR WITH MAGNIFYING HOVER EFFECT -->
+            <!-- FLOATING LIQUID GLASS DOCK TASKBAR -->
             <footer id="bottom-dock" class="w-full flex justify-center z-30 pb-2">
-                <div class="glass rounded-3xl px-4 py-2 flex items-center gap-3 shadow-2xl border border-white/20 glow-blue">
-                    <!-- Windows 12 Start Button -->
-                    <button onclick="toggleStartMenu()" class="dock-item p-2.5 rounded-2xl bg-gradient-to-tr from-cyan-500/20 to-blue-600/20 hover:from-cyan-500/40 hover:to-blue-600/40 border border-cyan-400/30 flex items-center justify-center" title="Start Menu">
+                <div class="liquid-glass rounded-3xl px-4 py-2 flex items-center gap-3 shadow-2xl glow-liquid">
+                    <!-- Windows 12 Liquid Start Button -->
+                    <button onclick="toggleStartMenu()" class="dock-item p-2.5 rounded-2xl bg-gradient-to-tr from-cyan-400/30 to-blue-600/30 hover:from-cyan-400/50 hover:to-blue-600/50 border border-cyan-300/40 flex items-center justify-center shadow-md" title="Start Menu">
                         <div class="w-6 h-6 grid grid-cols-2 gap-0.5 transform rotate-3">
-                            <div class="bg-cyan-400 rounded-xs"></div>
-                            <div class="bg-blue-500 rounded-xs"></div>
-                            <div class="bg-sky-400 rounded-xs"></div>
-                            <div class="bg-indigo-500 rounded-xs"></div>
+                            <div class="bg-cyan-300 rounded-xs"></div>
+                            <div class="bg-blue-400 rounded-xs"></div>
+                            <div class="bg-sky-300 rounded-xs"></div>
+                            <div class="bg-purple-400 rounded-xs"></div>
                         </div>
                     </button>
 
-                    <div class="h-6 w-[1px] bg-white/15"></div>
+                    <div class="h-6 w-[1px] bg-white/20"></div>
 
-                    <button id="dock-explorer" onclick="openWindow('explorer')" class="dock-item p-2.5 rounded-2xl hover:bg-white/10 relative text-cyan-400" title="File Explorer">
-                        <i data-lucide="folder" class="w-6 h-6"></i>
-                        <span id="dot-explorer" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-cyan-400 rounded-full"></span>
+                    <button id="dock-taskmgr" onclick="openWindow('taskmgr')" class="dock-item p-2.5 rounded-2xl hover:bg-white/15 relative text-emerald-300" title="Task Manager">
+                        <i data-lucide="activity" class="w-6 h-6"></i>
+                        <span id="dot-taskmgr" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-emerald-400 rounded-full shadow-md shadow-emerald-400"></span>
                     </button>
 
-                    <button id="dock-mediaplayer" onclick="openWindow('mediaplayer')" class="dock-item p-2.5 rounded-2xl hover:bg-white/10 relative text-pink-400" title="Media Player">
+                    <button id="dock-mediaplayer" onclick="openWindow('mediaplayer')" class="dock-item p-2.5 rounded-2xl hover:bg-white/15 relative text-pink-300" title="Media Player">
                         <i data-lucide="music" class="w-6 h-6"></i>
-                        <span id="dot-mediaplayer" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-pink-400 rounded-full"></span>
+                        <span id="dot-mediaplayer" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-pink-400 rounded-full shadow-md shadow-pink-400"></span>
                     </button>
 
-                    <button id="dock-settings" onclick="openWindow('settings')" class="dock-item p-2.5 rounded-2xl hover:bg-white/10 relative text-slate-300" title="Cài đặt">
+                    <button id="dock-settings" onclick="openWindow('settings')" class="dock-item p-2.5 rounded-2xl hover:bg-white/15 relative text-slate-200" title="Cài đặt">
                         <i data-lucide="settings" class="w-6 h-6"></i>
-                        <span id="dot-settings" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-slate-300 rounded-full"></span>
+                        <span id="dot-settings" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-cyan-300 rounded-full shadow-md shadow-cyan-300"></span>
                     </button>
 
-                    <div class="h-6 w-[1px] bg-white/15"></div>
+                    <div class="h-6 w-[1px] bg-white/20"></div>
 
-                    <button onclick="showShutdownMenu()" class="dock-item p-2.5 rounded-2xl hover:bg-rose-500/20 text-rose-400" title="Tắt / Khởi động lại">
+                    <button onclick="showShutdownMenu()" class="dock-item p-2.5 rounded-2xl hover:bg-rose-500/30 text-rose-300" title="Tắt / Khởi động lại">
                         <i data-lucide="power" class="w-5 h-5"></i>
                     </button>
                 </div>
             </footer>
         </div>
 
-        <!-- APP WINDOW 1: Explorer -->
-        <div id="window-explorer" class="app-window hidden fixed w-11/12 max-w-3xl h-[480px] bg-slate-900/95 backdrop-blur-2xl rounded-2xl flex flex-col shadow-2xl overflow-hidden z-20 border border-white/20" style="top: 12%; left: 18%;">
-            <div id="window-explorer-header" class="h-10 px-4 bg-slate-900/80 flex items-center justify-between border-b border-white/10 cursor-move select-none">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-300 pointer-events-none">
-                    <i data-lucide="folder" class="w-4 h-4 text-cyan-400"></i>
-                    <span>File Explorer - Windows 12</span>
+        <!-- APP WINDOW 1: Task Manager -->
+        <div id="window-taskmgr" class="app-window hidden fixed w-11/12 max-w-3xl h-[520px] liquid-glass-panel rounded-3xl flex flex-col shadow-2xl overflow-hidden z-20 border border-emerald-400/40" style="top: 10%; left: 18%;">
+            <div id="window-taskmgr-header" class="h-11 px-5 bg-white/10 flex items-center justify-between border-b border-white/20 cursor-move select-none backdrop-blur-md">
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-emerald-200 pointer-events-none">
+                    <i data-lucide="activity" class="w-4 h-4 text-emerald-400"></i>
+                    <span>Task Manager - Windows 12 Liquid Edition</span>
                 </div>
                 <div class="window-action-buttons flex items-center gap-2">
-                    <button onclick="minimizeWindow('explorer')" class="w-3.5 h-3.5 rounded-full bg-amber-500 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold" title="Thu nhỏ">_</button>
-                    <button onclick="toggleFullscreenApp('explorer')" class="w-3.5 h-3.5 rounded-full bg-emerald-500 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold" title="Toàn màn hình">□</button>
-                    <button onclick="closeWindow('explorer')" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold" title="Đóng">✕</button>
+                    <button onclick="minimizeWindow('taskmgr')" class="w-3.5 h-3.5 rounded-full bg-amber-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Thu nhỏ">_</button>
+                    <button onclick="toggleFullscreenApp('taskmgr')" class="w-3.5 h-3.5 rounded-full bg-emerald-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Toàn màn hình">□</button>
+                    <button onclick="closeWindow('taskmgr')" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold shadow-md" title="Đóng">✕</button>
                 </div>
             </div>
             <div class="flex-1 flex overflow-hidden">
-                <div class="w-48 bg-slate-950/40 p-3 border-r border-white/5 flex flex-col gap-1 text-xs">
-                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 font-medium"><i data-lucide="home" class="w-4 h-4"></i> Trang chủ</a>
-                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/5 text-slate-400"><i data-lucide="download" class="w-4 h-4"></i> Tải xuống</a>
-                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/5 text-slate-400"><i data-lucide="file-text" class="w-4 h-4"></i> Tài liệu</a>
-                    <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/5 text-slate-400"><i data-lucide="image" class="w-4 h-4"></i> Hình ảnh</a>
+                <div class="w-48 bg-white/5 p-3 border-r border-white/10 flex flex-col gap-1 text-xs">
+                    <button onclick="switchTaskTab('performance')" id="task-tab-btn-perf" class="flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/30 text-emerald-200 font-medium text-left border border-emerald-400/40 shadow-sm"><i data-lucide="cpu" class="w-4 h-4"></i> Hiệu năng</button>
+                    <button onclick="switchTaskTab('processes')" id="task-tab-btn-proc" class="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-300 text-left"><i data-lucide="list" class="w-4 h-4"></i> Tiến trình</button>
                 </div>
-                <div class="flex-1 p-6 grid grid-cols-3 gap-4 overflow-y-auto">
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-cyan-500/40 cursor-pointer flex flex-col items-center justify-center">
-                        <i data-lucide="hard-drive" class="w-10 h-10 text-cyan-400 mb-2"></i>
-                        <span class="text-xs font-medium">Ổ đĩa hệ thống (C:)</span>
-                        <span class="text-[10px] text-slate-400 mt-1">120 GB còn trống / 512 GB</span>
+                <div class="flex-1 p-5 overflow-y-auto space-y-4">
+                    <!-- Performance View -->
+                    <div id="task-view-performance" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-3">
+                            <!-- CPU Card -->
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 flex flex-col justify-between shadow-inner">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-semibold text-slate-200 flex items-center gap-1.5"><i data-lucide="cpu" class="w-3.5 h-3.5 text-cyan-400"></i> CPU (<span id="cpu-name-text">Đang nhận diện...</span>)</span>
+                                    <span id="metric-cpu-val" class="text-xs font-mono font-bold text-cyan-300">12%</span>
+                                </div>
+                                <div class="w-full bg-black/40 rounded-full h-2 overflow-hidden mb-2 border border-white/10">
+                                    <div id="bar-cpu" class="bg-gradient-to-r from-cyan-400 to-blue-500 h-full w-[12%] transition-all duration-300 shadow-sm"></div>
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-300 font-mono">
+                                    <span id="cpu-speed">3.80 GHz</span>
+                                    <span id="cpu-cores-text">-- Lõi</span>
+                                </div>
+                            </div>
+
+                            <!-- RAM Card -->
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 flex flex-col justify-between shadow-inner">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-semibold text-slate-200 flex items-center gap-1.5"><i data-lucide="server" class="w-3.5 h-3.5 text-indigo-400"></i> RAM (<span id="ram-type-text">DDR5</span>)</span>
+                                    <span id="metric-ram-val" class="text-xs font-mono font-bold text-indigo-300">-- / -- GB</span>
+                                </div>
+                                <div class="w-full bg-black/40 rounded-full h-2 overflow-hidden mb-2 border border-white/10">
+                                    <div id="bar-ram" class="bg-gradient-to-r from-indigo-400 to-purple-500 h-full w-[35%] transition-all duration-300 shadow-sm"></div>
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-300 font-mono">
+                                    <span id="ram-speed-text">Tốc độ: 5600 MT/s</span>
+                                    <span id="ram-pct-text">35%</span>
+                                </div>
+                            </div>
+
+                            <!-- Disk Card -->
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 flex flex-col justify-between shadow-inner">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-semibold text-slate-200 flex items-center gap-1.5"><i data-lucide="hard-drive" class="w-3.5 h-3.5 text-amber-400"></i> Ổ đĩa (SSD NVMe)</span>
+                                    <span id="metric-disk-val" class="text-xs font-mono font-bold text-amber-300">2%</span>
+                                </div>
+                                <div class="w-full bg-black/40 rounded-full h-2 overflow-hidden mb-2 border border-white/10">
+                                    <div id="bar-disk" class="bg-gradient-to-r from-amber-400 to-orange-500 h-full w-[15%] transition-all duration-300 shadow-sm"></div>
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-300 font-mono">
+                                    <span>Đọc: 140 KB/s</span>
+                                    <span>Trống: 382 GB</span>
+                                </div>
+                            </div>
+
+                            <!-- GPU Card -->
+                            <div class="p-4 rounded-2xl bg-white/10 border border-white/20 flex flex-col justify-between shadow-inner">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-semibold text-slate-200 flex items-center gap-1.5"><i data-lucide="activity" class="w-3.5 h-3.5 text-rose-400"></i> GPU (NVIDIA RTX)</span>
+                                    <span id="metric-gpu-val" class="text-xs font-mono font-bold text-rose-300">5%</span>
+                                </div>
+                                <div class="w-full bg-black/40 rounded-full h-2 overflow-hidden mb-2 border border-white/10">
+                                    <div id="bar-gpu" class="bg-gradient-to-r from-rose-400 to-pink-500 h-full w-[5%] transition-all duration-300 shadow-sm"></div>
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-300 font-mono">
+                                    <span>Nhiệt độ: 42°C</span>
+                                    <span>VRAM: Dedicated</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-purple-500/40 cursor-pointer flex flex-col items-center justify-center">
-                        <i data-lucide="cloud" class="w-10 h-10 text-purple-400 mb-2"></i>
-                        <span class="text-xs font-medium">OneDrive Cloud</span>
-                        <span class="text-[10px] text-slate-400 mt-1">Đã đồng bộ hoá</span>
+
+                    <!-- Processes View -->
+                    <div id="task-view-processes" class="hidden space-y-2">
+                        <div class="text-xs font-semibold text-slate-200 mb-2">Các ứng dụng nền đang hoạt động</div>
+                        <div class="space-y-1.5 text-xs font-mono">
+                            <div class="p-3 rounded-xl bg-white/10 border border-white/15 flex justify-between items-center">
+                                <span class="text-slate-100">Windows 12 Liquid Shell</span>
+                                <span class="text-cyan-300">2.4% CPU · 450 MB</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white/10 border border-white/15 flex justify-between items-center">
+                                <span class="text-slate-100">Liquid Glass Engine</span>
+                                <span class="text-emerald-300">0.8% CPU · 85 MB</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white/10 border border-white/15 flex justify-between items-center">
+                                <span class="text-slate-100">Audio Subsystem Service</span>
+                                <span class="text-pink-300">0.2% CPU · 42 MB</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- APP WINDOW 2: Media Player -->
-        <div id="window-mediaplayer" class="app-window hidden fixed w-11/12 max-w-2xl h-[480px] bg-slate-900/95 backdrop-blur-2xl rounded-2xl flex flex-col shadow-2xl overflow-hidden z-20 border border-pink-500/30" style="top: 15%; left: 24%;">
-            <div id="window-mediaplayer-header" class="h-10 px-4 bg-slate-900/80 flex items-center justify-between border-b border-white/10 cursor-move select-none">
-                <div class="flex items-center gap-2 text-xs font-semibold text-pink-300 pointer-events-none">
-                    <i data-lucide="music" class="w-4 h-4 text-pink-400"></i>
-                    <span>Windows Media Player</span>
+        <div id="window-mediaplayer" class="app-window hidden fixed w-11/12 max-w-2xl h-[480px] liquid-glass-panel rounded-3xl flex flex-col shadow-2xl overflow-hidden z-20 border border-pink-400/40" style="top: 15%; left: 24%;">
+            <div id="window-mediaplayer-header" class="h-11 px-5 bg-white/10 flex items-center justify-between border-b border-white/20 cursor-move select-none backdrop-blur-md">
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-pink-200 pointer-events-none truncate pr-2">
+                    <i data-lucide="music" class="w-4 h-4 text-pink-400 shrink-0"></i>
+                    <span class="truncate">Windows Media Player - Liquid</span>
                 </div>
-                <div class="window-action-buttons flex items-center gap-2">
-                    <button onclick="minimizeWindow('mediaplayer')" class="w-3.5 h-3.5 rounded-full bg-amber-500 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold" title="Thu nhỏ">_</button>
-                    <button onclick="toggleFullscreenApp('mediaplayer')" class="w-3.5 h-3.5 rounded-full bg-emerald-500 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold" title="Toàn màn hình">□</button>
-                    <button onclick="closeWindow('mediaplayer')" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold" title="Đóng">✕</button>
+                <div class="window-action-buttons flex items-center gap-2 shrink-0">
+                    <button onclick="stopAndCloseMediaPlayer()" class="w-3.5 h-3.5 rounded-full bg-amber-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Thu nhỏ & Tắt nhạc">_</button>
+                    <button onclick="toggleFullscreenApp('mediaplayer')" class="w-3.5 h-3.5 rounded-full bg-emerald-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Toàn màn hình">□</button>
+                    <button onclick="stopAndCloseMediaPlayer()" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold shadow-md" title="Đóng & Tắt nhạc">✕</button>
                 </div>
             </div>
-            <div class="flex-1 flex flex-col p-6 items-center justify-between bg-gradient-to-b from-slate-900 to-slate-950">
-                <div class="w-full flex justify-between items-center mb-2">
-                    <span class="text-xs font-semibold text-pink-400 uppercase tracking-widest">Thư viện nhạc</span>
-                    <label class="flex items-center gap-1.5 bg-pink-500/20 hover:bg-pink-500/30 text-pink-300 px-3 py-1.5 rounded-xl text-xs font-medium cursor-pointer border border-pink-500/30 transition">
+            <div class="flex-1 flex flex-col p-6 items-center justify-between bg-gradient-to-b from-transparent to-black/30 overflow-hidden">
+                <div class="w-full flex justify-between items-center mb-2 shrink-0">
+                    <span class="text-xs font-semibold text-pink-300 uppercase tracking-widest truncate pr-2">Thư Viện Nhạc</span>
+                    <label class="flex items-center gap-1.5 bg-pink-500/20 hover:bg-pink-500/40 text-pink-200 px-3 py-1.5 rounded-xl text-xs font-medium cursor-pointer border border-pink-400/40 transition shadow-md shrink-0">
                         <i data-lucide="upload-cloud" class="w-3.5 h-3.5"></i>
                         <span>Thêm file media</span>
                         <input type="file" id="media-file-input" accept="audio/*,video/*" class="hidden" onchange="handleMediaImport(event)">
                     </label>
                 </div>
 
-                <div class="w-full flex items-center gap-6">
-                    <div id="media-cover" class="w-36 h-36 rounded-2xl bg-gradient-to-tr from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center shadow-xl shadow-pink-500/20 relative group overflow-hidden bg-cover bg-center">
-                        <i id="media-disc-icon" data-lucide="disc" class="w-16 h-16 text-white/80 animate-spin" style="animation-duration: 10s;"></i>
+                <div class="w-full flex items-center gap-6 overflow-hidden my-auto">
+                    <div id="media-cover" class="w-36 h-36 shrink-0 rounded-2xl bg-gradient-to-tr from-pink-500 via-rose-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-pink-500/40 relative group overflow-hidden bg-cover bg-center border border-white/30">
+                        <i id="media-disc-icon" data-lucide="disc" class="w-16 h-16 text-white/90 animate-spin" style="animation-duration: 10s;"></i>
                     </div>
-                    <div class="flex-1">
-                        <h3 id="media-track-title" class="text-xl font-bold text-white mt-1">Windows 12 Symphony</h3>
-                        <p id="media-track-artist" class="text-xs text-slate-400 mt-1">Microsoft Design Studio</p>
+                    <div class="flex-1 min-w-0 pr-2">
+                        <h3 id="media-track-title" class="text-lg font-bold text-white mt-1 truncate" title="Hào Khí Việt Nam">Hào Khí Việt Nam</h3>
+                        <p id="media-track-artist" class="text-xs text-slate-300 mt-1 truncate">Sáng Rực Non Sông Việt Nam</p>
                         
-                        <audio id="audio-player" class="hidden"></audio>
+                        <!-- Embedded Audio Player -->
+                        <audio id="audio-player" loop crossorigin="anonymous"></audio>
 
-                        <div class="mt-6">
-                            <div class="w-full bg-slate-800 rounded-full h-1.5 cursor-pointer relative overflow-hidden" onclick="seekAudio(event)">
-                                <div id="media-progress" class="bg-gradient-to-r from-pink-500 to-rose-400 h-full w-0 rounded-full transition-all duration-200"></div>
+                        <div class="mt-4">
+                            <div class="w-full bg-black/40 rounded-full h-2 cursor-pointer relative overflow-hidden border border-white/10" onclick="seekAudio(event)">
+                                <div id="media-progress" class="bg-gradient-to-r from-pink-400 to-rose-400 h-full w-0 rounded-full transition-all duration-200 shadow-sm"></div>
                             </div>
-                            <div class="flex justify-between text-[10px] text-slate-400 mt-1.5 font-mono">
+                            <div class="flex justify-between text-[10px] text-slate-300 mt-1.5 font-mono">
                                 <span id="media-current-time">0:00</span>
                                 <span id="media-duration">0:00</span>
                             </div>
@@ -637,784 +753,640 @@
                     </div>
                 </div>
 
-                <div class="w-full bg-slate-900/60 rounded-2xl p-3 border border-white/5 flex items-center justify-between px-6">
-                    <button class="text-slate-400 hover:text-white transition"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
+                <div class="w-full bg-white/10 rounded-2xl p-3 border border-white/20 flex items-center justify-between px-6 backdrop-blur-md shrink-0">
+                    <button class="text-slate-300 hover:text-white transition"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
                     <div class="flex items-center gap-4">
                         <button class="text-slate-200 hover:text-white transition"><i data-lucide="skip-back" class="w-5 h-5"></i></button>
-                        <button id="media-play-btn" onclick="togglePlayPause()" class="w-10 h-10 rounded-full bg-pink-500 hover:bg-pink-400 flex items-center justify-center text-white shadow-lg shadow-pink-500/40 transition">
+                        <button id="media-play-btn" onclick="togglePlayPause()" class="w-10 h-10 rounded-full bg-gradient-to-tr from-pink-500 to-rose-400 hover:opacity-90 flex items-center justify-center text-white shadow-lg shadow-pink-500/50 transition border border-white/30">
                             <i id="media-play-icon" data-lucide="play" class="w-5 h-5"></i>
                         </button>
                         <button class="text-slate-200 hover:text-white transition"><i data-lucide="skip-forward" class="w-5 h-5"></i></button>
                     </div>
-                    <div class="flex items-center gap-2 text-slate-400">
+                    <div class="flex items-center gap-2 text-slate-300">
                         <i data-lucide="volume-2" class="w-4 h-4"></i>
-                        <input type="range" min="0" max="1" step="0.05" value="0.8" onchange="setVolume(this.value)" class="w-16 accent-pink-500 cursor-pointer">
+                        <input type="range" min="0" max="1" step="0.05" value="0.8" onchange="setVolume(this.value)" class="w-16 accent-pink-400 cursor-pointer">
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- APP WINDOW 3: Settings -->
-        <div id="window-settings" class="app-window hidden fixed w-11/12 max-w-3xl h-[500px] bg-slate-900/95 backdrop-blur-2xl rounded-2xl flex flex-col shadow-2xl overflow-hidden z-20 border border-white/20" style="top: 10%; left: 20%;">
-            <div id="window-settings-header" class="h-10 px-4 bg-slate-900/80 flex items-center justify-between border-b border-white/10 cursor-move select-none">
-                <div class="flex items-center gap-2 text-xs font-semibold text-slate-300 pointer-events-none">
+        <div id="window-settings" class="app-window hidden fixed w-11/12 max-w-3xl h-[500px] liquid-glass-panel rounded-3xl flex flex-col shadow-2xl overflow-hidden z-20 border border-white/30" style="top: 10%; left: 20%;">
+            <div id="window-settings-header" class="h-11 px-5 bg-white/10 flex items-center justify-between border-b border-white/20 cursor-move select-none backdrop-blur-md">
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-slate-200 pointer-events-none">
                     <i data-lucide="settings" class="w-4 h-4 text-cyan-400"></i>
-                    <span>Cài đặt hệ thống - Windows 12</span>
+                    <span>Cài đặt hệ thống - Windows 12 Liquid</span>
                 </div>
                 <div class="window-action-buttons flex items-center gap-2">
-                    <button onclick="minimizeWindow('settings')" class="w-3.5 h-3.5 rounded-full bg-amber-500 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold" title="Thu nhỏ">_</button>
-                    <button onclick="toggleFullscreenApp('settings')" class="w-3.5 h-3.5 rounded-full bg-emerald-500 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold" title="Toàn màn hình">□</button>
-                    <button onclick="closeWindow('settings')" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold" title="Đóng">✕</button>
+                    <button onclick="minimizeWindow('settings')" class="w-3.5 h-3.5 rounded-full bg-amber-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Thu nhỏ">_</button>
+                    <button onclick="toggleFullscreenApp('settings')" class="w-3.5 h-3.5 rounded-full bg-emerald-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Toàn màn hình">□</button>
+                    <button onclick="closeWindow('settings')" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold shadow-md" title="Đóng">✕</button>
                 </div>
             </div>
             <div class="flex-1 flex overflow-hidden">
-                <div class="w-52 bg-slate-950/40 p-3 border-r border-white/5 flex flex-col gap-1 text-xs">
-                    <button onclick="switchSettingsTab('system')" id="tab-btn-system" class="settings-tab-btn flex items-center gap-2 px-3 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 font-medium text-left"><i data-lucide="laptop" class="w-4 h-4"></i> Hệ thống</button>
-                    <button onclick="switchSettingsTab('personalization')" id="tab-btn-personalization" class="settings-tab-btn flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/5 text-slate-400 text-left"><i data-lucide="palette" class="w-4 h-4"></i> Cá nhân hóa & Hình nền</button>
-                    <button onclick="switchSettingsTab('security')" id="tab-btn-security" class="settings-tab-btn flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/5 text-slate-400 text-left"><i data-lucide="shield-check" class="w-4 h-4"></i> Bảo mật</button>
+                <div class="w-52 bg-white/5 p-3 border-r border-white/10 flex flex-col gap-1 text-xs">
+                    <button onclick="switchSettingsTab('personalization')" id="set-tab-btn-personal" class="flex items-center gap-2.5 px-3 py-2 rounded-xl bg-cyan-500/30 text-cyan-200 font-medium text-left border border-cyan-400/40 shadow-sm"><i data-lucide="palette" class="w-4 h-4"></i> Cá nhân hóa</button>
+                    <button onclick="switchSettingsTab('system')" id="set-tab-btn-sys" class="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-300 text-left"><i data-lucide="laptop" class="w-4 h-4"></i> Hệ thống</button>
                 </div>
-
-                <div class="flex-1 p-6 space-y-4 overflow-y-auto">
-                    <div id="settings-tab-system" class="space-y-4">
-                        <div class="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5">
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center text-cyan-400">
-                                <i data-lucide="cpu" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-sm font-semibold text-slate-100">Windows 12 Pro Concept</h4>
-                                <p class="text-xs text-slate-400">Phiên bản 26H2 - Build 26200</p>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <h5 class="text-xs font-semibold text-slate-300">Tùy chọn thiết bị</h5>
-                            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="moon" class="w-4 h-4 text-indigo-400"></i>
-                                    <span class="text-xs text-slate-200">Giao diện tối (Dark Mode)</span>
-                                </div>
-                                <input type="checkbox" checked class="accent-cyan-500 w-4 h-4 cursor-pointer">
-                            </div>
-
-                            <div class="p-3.5 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <i data-lucide="sparkles" class="w-4 h-4 text-amber-400"></i>
-                                    <span class="text-xs text-slate-200">Hiệu ứng trong suốt Glassmorphism</span>
-                                </div>
-                                <input type="checkbox" checked class="accent-cyan-500 w-4 h-4 cursor-pointer">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="settings-tab-personalization" class="hidden space-y-4">
-                        <h4 class="text-sm font-bold text-slate-100">Thay đổi hình nền Desktop</h4>
-                        <p class="text-xs text-slate-400">Hình nền bạn lưu sẽ giữ nguyên tự động ngay cả khi F5 làm mới lại trang.</p>
-
-                        <!-- Drag and Drop Dropzone -->
-                        <div id="wallpaper-drop-zone" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDropWallpaper(event)" class="p-6 rounded-2xl bg-white/5 border-2 border-dashed border-white/15 flex flex-col items-center justify-center gap-2 transition cursor-pointer hover:border-cyan-400/50">
-                            <i data-lucide="upload-cloud" class="w-8 h-8 text-cyan-400 mb-1"></i>
-                            <p class="text-xs font-semibold text-slate-200">Kéo & thả hình ảnh vào đây để đổi hình nền ngay</p>
-                            <p class="text-[10px] text-slate-400">Hoặc chọn tệp từ máy tính (JPG, PNG, WEBP)</p>
-                            <label class="mt-2 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold px-4 py-1.5 rounded-xl text-xs cursor-pointer transition shadow-lg shadow-cyan-500/20">
-                                <span>Tải hình nền lên</span>
-                                <input type="file" accept="image/*" class="hidden" onchange="handleWallpaperImport(event)">
+                <div class="flex-1 p-6 overflow-y-auto space-y-6">
+                    <!-- Personalization Settings -->
+                    <div id="set-view-personalization" class="space-y-4">
+                        <h4 class="text-sm font-semibold text-slate-100 flex items-center gap-2"><i data-lucide="image" class="w-4 h-4 text-cyan-400"></i> Hình nền Desktop</h4>
+                        <p class="text-xs text-slate-300">Tải lên hình nền từ thiết bị của bạn. Hình nền sẽ tự động lưu lại kể cả khi nhấn F5 làm mới trang.</p>
+                        
+                        <div class="flex items-center gap-4 pt-2">
+                            <label class="flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 hover:opacity-90 text-white px-4 py-2 rounded-2xl text-xs font-semibold cursor-pointer border border-white/30 shadow-lg shadow-cyan-500/30 transition">
+                                <i data-lucide="upload" class="w-4 h-4"></i>
+                                <span>Tải lên hình nền mới</span>
+                                <input type="file" accept="image/*" class="hidden" onchange="handleWallpaperUpload(event)">
                             </label>
+
+                            <button onclick="resetWallpaper()" class="bg-white/10 hover:bg-white/20 text-slate-200 px-4 py-2 rounded-2xl text-xs font-medium border border-white/20 transition">
+                                Đặt lại hình nền gốc
+                            </button>
                         </div>
 
-                        <div class="space-y-2">
-                            <h5 class="text-xs font-semibold text-slate-300">Hình nền Windows 12 có sẵn</h5>
-                            <div class="grid grid-cols-3 gap-3">
-                                <button onclick="setWallpaperPreset('default')" class="h-20 rounded-xl bg-gradient-to-br from-cyan-900 via-slate-900 to-indigo-950 border border-cyan-500/40 p-2 text-left flex flex-col justify-end hover:scale-105 transition">
-                                    <span class="text-[10px] font-bold text-white">Default Bloom</span>
-                                </button>
-                                <button onclick="setWallpaperPreset('aurora')" class="h-20 rounded-xl bg-gradient-to-br from-emerald-800 via-teal-900 to-slate-950 border border-emerald-500/40 p-2 text-left flex flex-col justify-end hover:scale-105 transition">
-                                    <span class="text-[10px] font-bold text-white">Aurora Light</span>
-                                </button>
-                                <button onclick="setWallpaperPreset('sunset')" class="h-20 rounded-xl bg-gradient-to-br from-rose-900 via-purple-900 to-slate-950 border border-rose-500/40 p-2 text-left flex flex-col justify-end hover:scale-105 transition">
-                                    <span class="text-[10px] font-bold text-white">Cyber Sunset</span>
-                                </button>
+                        <div class="pt-4 border-t border-white/10">
+                            <h4 class="text-sm font-semibold text-slate-100 mb-2">Chủ đề Glassmorphism</h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <button onclick="setThemePreset('cyan')" class="p-3 rounded-2xl bg-cyan-500/20 border border-cyan-400/40 text-xs font-medium text-cyan-200 text-left">Liquid Cyan (Mặc định)</button>
+                                <button onclick="setThemePreset('purple')" class="p-3 rounded-2xl bg-purple-500/20 border border-purple-400/40 text-xs font-medium text-purple-200 text-left">Aura Purple</button>
                             </div>
                         </div>
                     </div>
 
-                    <div id="settings-tab-security" class="hidden space-y-4">
-                        <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-3">
-                            <i data-lucide="shield-check" class="w-6 h-6 text-emerald-400"></i>
-                            <div>
-                                <h4 class="text-xs font-bold text-emerald-300">Windows Defender Security Center</h4>
-                                <p class="text-[10px] text-slate-400">Hệ thống đang được bảo vệ an toàn</p>
-                            </div>
+                    <!-- System Info Settings -->
+                    <div id="set-view-system" class="hidden space-y-4 text-xs">
+                        <h4 class="text-sm font-semibold text-slate-100 mb-2">Thông tin thiết bị</h4>
+                        <div class="space-y-2 bg-white/5 p-4 rounded-2xl border border-white/10 font-mono">
+                            <div class="flex justify-between"><span class="text-slate-400">Tên thiết bị:</span> <span class="text-slate-100 font-semibold">Windows12-Liquid-PC</span></div>
+                            <div class="flex justify-between"><span class="text-slate-400">Hệ điều hành:</span> <span class="text-cyan-300">Windows 12 Liquid Edition 64-bit</span></div>
+                            <div class="flex justify-between"><span class="text-slate-400">Phiên bản Kernel:</span> <span>26200.2026</span></div>
+                            <div class="flex justify-between"><span class="text-slate-400">Bộ nhớ RAM khả dụng:</span> <span id="sys-ram-val">Loading...</span></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- START MENU POPUP -->
-        <div id="start-menu" class="hidden absolute bottom-20 left-1/2 transform -translate-x-1/2 w-[520px] glass-panel rounded-3xl p-6 shadow-2xl border border-white/20 z-40 transition-all duration-300">
-            <div class="mb-6">
-                <div class="flex justify-between items-center mb-3">
-                    <span class="text-xs font-semibold text-slate-300">Đã ghim</span>
-                    <button class="text-[11px] text-cyan-400 hover:underline">Tất cả ứng dụng &gt;</button>
-                </div>
-                <div class="grid grid-cols-3 gap-4">
-                    <div onclick="openWindow('explorer'); toggleStartMenu();" class="flex flex-col items-center p-2.5 rounded-2xl hover:bg-white/10 cursor-pointer transition">
-                        <div class="w-11 h-11 rounded-2xl bg-blue-600 flex items-center justify-center text-white"><i data-lucide="folder" class="w-6 h-6"></i></div>
-                        <span class="text-xs mt-1.5 text-slate-200 font-medium">Files</span>
-                    </div>
-                    <div onclick="openWindow('mediaplayer'); toggleStartMenu();" class="flex flex-col items-center p-2.5 rounded-2xl hover:bg-white/10 cursor-pointer transition">
-                        <div class="w-11 h-11 rounded-2xl bg-rose-500 flex items-center justify-center text-white"><i data-lucide="music" class="w-6 h-6"></i></div>
-                        <span class="text-xs mt-1.5 text-slate-200 font-medium">Media</span>
-                    </div>
-                    <div onclick="openWindow('settings'); toggleStartMenu();" class="flex flex-col items-center p-2.5 rounded-2xl hover:bg-white/10 cursor-pointer transition">
-                        <div class="w-11 h-11 rounded-2xl bg-slate-600 flex items-center justify-center text-white"><i data-lucide="settings" class="w-6 h-6"></i></div>
-                        <span class="text-xs mt-1.5 text-slate-200 font-medium">Cài đặt</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pt-4 border-t border-white/10 flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 flex items-center justify-center text-white font-bold text-xs">W12</div>
-                    <div>
-                        <p class="text-xs font-semibold text-slate-200">Concept User</p>
-                        <p class="text-[10px] text-slate-400">Windows Developer</p>
-                    </div>
-                </div>
-                <button onclick="showShutdownMenu()" class="p-2 rounded-xl hover:bg-red-500/20 text-slate-300 hover:text-red-400 transition" title="Menu Tắt máy">
-                    <i data-lucide="power" class="w-4 h-4"></i>
-                </button>
-            </div>
-        </div>
     </div>
 
     <script>
-        // Initialize Lucide Icons
-        lucide.createIcons();
+        let audioCtx = null;
 
-        /* WINDOW DRAGGING LOGIC & Z-INDEX FOCUS MANAGEMENT */
-        let activeZIndex = 30;
-
-        function makeWindowDraggable(winId) {
-            const win = document.getElementById(`window-${winId}`);
-            const header = document.getElementById(`window-${winId}-header`);
-            
-            if (!win || !header) return;
-
-            let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-
-            header.onmousedown = dragMouseDown;
-
-            function dragMouseDown(e) {
-                if (win.classList.contains('window-fullscreen')) return;
-
-                // Bring to front
-                activeZIndex++;
-                win.style.zIndex = activeZIndex;
-
-                e = e || window.event;
-                e.preventDefault();
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-                document.onmouseup = closeDragElement;
-                document.onmousemove = elementDrag;
+        function initAudioContextOnUserGesture() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            } else if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
             }
+        }
 
-            function elementDrag(e) {
-                e = e || window.event;
-                e.preventDefault();
-                pos1 = pos3 - e.clientX;
-                pos2 = pos4 - e.clientY;
-                pos3 = e.clientX;
-                pos4 = e.clientY;
-
-                win.style.top = (win.offsetTop - pos2) + "px";
-                win.style.left = (win.offsetLeft - pos1) + "px";
-            }
-
-            function closeDragElement() {
-                document.onmouseup = null;
-                document.onmousemove = null;
-            }
-
-            // Click window body to focus / bring to front
-            win.addEventListener('mousedown', () => {
-                if (!win.classList.contains('window-fullscreen')) {
-                    activeZIndex++;
-                    win.style.zIndex = activeZIndex;
+        // Web Audio synthesized sound generator for UI SFX
+        function playSound(type) {
+            try {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
                 }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(800, now);
+                    osc.frequency.exponentialRampToValueAtTime(400, now + 0.05);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } 
+                else if (type === 'open') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, now);
+                    osc.frequency.exponentialRampToValueAtTime(880, now + 0.18);
+                    gain.gain.setValueAtTime(0.12, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.18);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.18);
+                }
+                else if (type === 'startup') {
+                    // Windows 12 Futuristic Chime (C Major chord progression)
+                    const freqs = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99]; // C4, E4, G4, C5, E5, G5
+                    freqs.forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.12);
+                        gain.gain.setValueAtTime(0, now + idx * 0.12);
+                        gain.gain.linearRampToValueAtTime(0.12, now + idx * 0.12 + 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 1.8);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start(now + idx * 0.12);
+                        osc.stop(now + idx * 0.12 + 1.8);
+                    });
+                }
+                else if (type === 'shutdown') {
+                    // Shutdown Descending Chime
+                    const freqs = [659.25, 523.25, 392.00, 261.63];
+                    freqs.forEach((freq, idx) => {
+                        const osc = audioCtx.createOscillator();
+                        const gain = audioCtx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.15);
+                        gain.gain.setValueAtTime(0.12, now + idx * 0.15);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.15 + 0.8);
+                        osc.connect(gain);
+                        gain.connect(audioCtx.destination);
+                        osc.start(now + idx * 0.15);
+                        osc.stop(now + idx * 0.15 + 0.8);
+                    });
+                }
+            } catch (e) {
+                console.warn('Audio playback error:', e);
+            }
+        }
+
+        // System Global States
+        let isPowerTransitioning = false;
+        let isPlaying = false;
+        let isFullscreenActive = false;
+        let activeFullscreenAppId = null;
+
+        // On DOM Loaded Initialization
+        window.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            initClock();
+            initSystemMetrics();
+            setupDraggableWindows();
+            loadSavedWallpaper();
+
+            // Hide Boot Screen on start & play boot sound
+            setTimeout(() => {
+                const bootScreen = document.getElementById('boot-screen');
+                const workspace = document.getElementById('workspace-slider');
+                if (bootScreen) {
+                    bootScreen.classList.add('opacity-0');
+                    setTimeout(() => bootScreen.style.display = 'none', 1000);
+                }
+                if (workspace) {
+                    workspace.classList.remove('opacity-0');
+                }
+                playSound('startup');
+            }, 1800);
+        });
+
+        /* Clock Engine */
+        function initClock() {
+            const updateTime = () => {
+                const now = new Date();
+                const clockEl = document.getElementById('clock');
+                const dateEl = document.getElementById('date');
+                if (clockEl) clockEl.innerText = now.toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' });
+                if (dateEl) dateEl.innerText = now.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+            };
+            updateTime();
+            setInterval(updateTime, 1000);
+        }
+
+        /* Hardware Metrics Detector */
+        function initSystemMetrics() {
+            const cores = navigator.hardwareConcurrency || 8;
+            const ramGB = navigator.deviceMemory || 16;
+
+            const cpuNameEl = document.getElementById('cpu-name-text');
+            const cpuCoresEl = document.getElementById('cpu-cores-text');
+            const ramTypeEl = document.getElementById('ram-type-text');
+            const metricRamVal = document.getElementById('metric-ram-val');
+            const sysRamVal = document.getElementById('sys-ram-val');
+
+            if (cpuNameEl) cpuNameEl.innerText = `${cores}-Core High-Perf Processor`;
+            if (cpuCoresEl) cpuCoresEl.innerText = `${cores} Lõi Logic`;
+            if (metricRamVal) metricRamVal.innerText = `5.6 / ${ramGB} GB`;
+            if (sysRamVal) sysRamVal.innerText = `${ramGB} GB RAM DDR5`;
+
+            // Dynamic random CPU metric update
+            setInterval(() => {
+                const randomCpu = Math.floor(Math.random() * 25) + 8;
+                const barCpu = document.getElementById('bar-cpu');
+                const metricCpuVal = document.getElementById('metric-cpu-val');
+                if (barCpu) barCpu.style.width = `${randomCpu}%`;
+                if (metricCpuVal) metricCpuVal.innerText = `${randomCpu}%`;
+            }, 2500);
+        }
+
+        /* Power Menu & Shutdown Animation Effects */
+        function showShutdownMenu() {
+            const shutdownScreen = document.getElementById('shutdown-screen');
+            const powerCard = document.getElementById('power-card');
+            
+            if (shutdownScreen && powerCard) {
+                shutdownScreen.classList.remove('hidden');
+                setTimeout(() => {
+                    shutdownScreen.classList.remove('opacity-0');
+                    powerCard.classList.remove('scale-95');
+                    powerCard.classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeShutdownMenu() {
+            if (isPowerTransitioning) return;
+            const shutdownScreen = document.getElementById('shutdown-screen');
+            const powerCard = document.getElementById('power-card');
+            
+            if (shutdownScreen && powerCard) {
+                powerCard.classList.remove('scale-100');
+                powerCard.classList.add('scale-95');
+                shutdownScreen.classList.add('opacity-0');
+                setTimeout(() => {
+                    shutdownScreen.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        /* Execute Shutdown / Restart Sequence */
+        function executePowerAction(action) {
+            if (isPowerTransitioning) return;
+            isPowerTransitioning = true;
+            playSound('click');
+
+            const topPanel = document.getElementById('top-panel');
+            const bottomDock = document.getElementById('bottom-dock');
+            const desktopIcons = document.getElementById('desktop-icons');
+            const shutdownScreen = document.getElementById('shutdown-screen');
+            const powerCard = document.getElementById('power-card');
+
+            // 1. AN CAI CARD THONG BAO TRUOC, SAU DO MOI CHAY HIEU UNG HE THONG
+            if (powerCard) {
+                powerCard.style.opacity = '0';
+                powerCard.style.transform = 'scale(0.9)';
+                powerCard.style.transition = 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
+            }
+
+            // Play Shutdown Audio
+            playSound('shutdown');
+
+            // 2. Chờ card ẩn hoàn toàn (250ms) rồi mới kích hoạt hiệu ứng thu gom Top Panel, Dock, Icons & Windows
+            setTimeout(() => {
+                if (shutdownScreen) shutdownScreen.classList.add('opacity-0');
+
+                if (topPanel) topPanel.classList.add('power-panel-hidden');
+                if (bottomDock) bottomDock.classList.add('power-dock-hidden');
+                if (desktopIcons) desktopIcons.classList.add('power-icons-hidden');
+
+                // Close all app windows smoothly
+                document.querySelectorAll('.app-window').forEach(win => {
+                    win.classList.add('window-closing');
+                    setTimeout(() => win.classList.add('hidden'), 300);
+                });
+
+                // 3. Tiến hành chuyển hướng/tắt sau khi các hiệu ứng hoàn tất (800ms)
+                setTimeout(() => {
+                    if (action === 'restart') {
+                        const restartScreen = document.getElementById('restart-screen');
+                        if (restartScreen) restartScreen.classList.remove('hidden');
+                        setTimeout(() => {
+                            window.location.reload();
+                        }, 2200);
+                    } else if (action === 'shutdown') {
+                        document.body.innerHTML = `
+                            <div class="h-screen w-screen bg-black flex flex-col items-center justify-center font-mono text-slate-500 text-xs">
+                                <i data-lucide="power-off" class="w-12 h-12 mb-4 text-slate-700 animate-pulse"></i>
+                                <p>Máy tính đã tắt nguồn an toàn.</p>
+                                <button onclick="window.location.reload()" class="mt-6 px-4 py-2 rounded-xl bg-white/10 text-slate-300 hover:bg-white/20 transition">Khởi động lại Windows 12</button>
+                            </div>
+                        `;
+                        lucide.createIcons();
+                    } else if (action === 'sleep') {
+                        const sleepDiv = document.createElement('div');
+                        sleepDiv.id = 'sleep-overlay';
+                        sleepDiv.className = 'fixed inset-0 bg-black/95 z-[200] flex items-center justify-center cursor-pointer';
+                        sleepDiv.innerHTML = `<div class="text-center text-slate-400 text-xs animate-pulse"><i data-lucide="moon" class="w-10 h-10 mx-auto mb-2 text-indigo-400"></i>Nhấn bất kỳ đâu để bật lại màn hình</div>`;
+                        document.body.appendChild(sleepDiv);
+                        lucide.createIcons();
+
+                        sleepDiv.onclick = () => {
+                            sleepDiv.remove();
+                            if (topPanel) topPanel.classList.remove('power-panel-hidden');
+                            if (bottomDock) bottomDock.classList.remove('power-dock-hidden');
+                            if (desktopIcons) desktopIcons.classList.remove('power-icons-hidden');
+                            if (shutdownScreen) closeShutdownMenu();
+                            if (powerCard) {
+                                powerCard.style.opacity = '1';
+                                powerCard.style.transform = 'scale(1)';
+                            }
+                            isPowerTransitioning = false;
+                            playSound('startup');
+                        };
+                    }
+                }, 800);
+            }, 250);
+        }
+
+        /* Persistent Wallpaper Upload Engine (localStorage) */
+        function handleWallpaperUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const bgDataUrl = e.target.result;
+                const osBody = document.getElementById('os-body');
+                if (osBody) {
+                    osBody.style.backgroundImage = `url('${bgDataUrl}')`;
+                    osBody.style.backgroundSize = 'cover';
+                    osBody.style.backgroundPosition = 'center';
+                }
+
+                // Save to localStorage for F5 persistence
+                try {
+                    localStorage.setItem('win12_custom_wallpaper', bgDataUrl);
+                } catch(err) {
+                    console.warn('Storage limit reached for local wallpaper string');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function loadSavedWallpaper() {
+            const savedBg = localStorage.getItem('win12_custom_wallpaper');
+            if (savedBg) {
+                const osBody = document.getElementById('os-body');
+                if (osBody) {
+                    osBody.style.backgroundImage = `url('${savedBg}')`;
+                    osBody.style.backgroundSize = 'cover';
+                    osBody.style.backgroundPosition = 'center';
+                }
+            }
+        }
+
+        function resetWallpaper() {
+            localStorage.removeItem('win12_custom_wallpaper');
+            const osBody = document.getElementById('os-body');
+            if (osBody) {
+                osBody.style.backgroundImage = '';
+            }
+        }
+
+        /* App Windows Logic */
+        function openWindow(appId) {
+            playSound('open');
+            const win = document.getElementById(`window-${appId}`);
+            const dot = document.getElementById(`dot-${appId}`);
+            if (win) {
+                win.classList.remove('hidden', 'window-closing');
+                win.classList.add('window-opening');
+                if (dot) dot.classList.remove('hidden');
+            }
+        }
+
+        function closeWindow(appId) {
+            playSound('click');
+            const win = document.getElementById(`window-${appId}`);
+            const dot = document.getElementById(`dot-${appId}`);
+            if (win) {
+                win.classList.remove('window-opening');
+                win.classList.add('window-closing');
+                setTimeout(() => {
+                    win.classList.add('hidden');
+                    if (dot) dot.classList.add('hidden');
+                }, 300);
+            }
+        }
+
+        function minimizeWindow(appId) {
+            closeWindow(appId);
+        }
+
+        /* Fullscreen Application Toggle */
+        function toggleFullscreenApp(appId) {
+            playSound('click');
+            const win = document.getElementById(`window-${appId}`);
+            const workspace = document.getElementById('workspace-slider');
+            const hoverZone = document.getElementById('fullscreen-hover-zone');
+            const fullscreenTitle = document.getElementById('fullscreen-app-title');
+
+            if (!win) return;
+
+            if (!isFullscreenActive) {
+                isFullscreenActive = true;
+                activeFullscreenAppId = appId;
+                win.classList.add('window-fullscreen');
+                if (workspace) workspace.classList.add('workspace-swiped');
+                if (hoverZone) hoverZone.classList.remove('hidden');
+                if (fullscreenTitle) fullscreenTitle.innerText = `${appId.toUpperCase()} - Toàn màn hình`;
+            } else {
+                exitFullscreenApp();
+            }
+        }
+
+        function exitFullscreenApp() {
+            playSound('click');
+            if (!activeFullscreenAppId) return;
+            const win = document.getElementById(`window-${activeFullscreenAppId}`);
+            const workspace = document.getElementById('workspace-slider');
+            const hoverZone = document.getElementById('fullscreen-hover-zone');
+
+            if (win) win.classList.remove('window-fullscreen');
+            if (workspace) workspace.classList.remove('workspace-swiped');
+            if (hoverZone) hoverZone.classList.add('hidden');
+
+            isFullscreenActive = false;
+            activeFullscreenAppId = null;
+        }
+
+        /* Media Player Engine */
+        function handleMediaImport(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const audioPlayer = document.getElementById('audio-player');
+            const trackTitle = document.getElementById('media-track-title');
+            const trackArtist = document.getElementById('media-track-artist');
+
+            if (audioPlayer) {
+                audioPlayer.src = URL.createObjectURL(file);
+                if (trackTitle) trackTitle.innerText = file.name;
+                if (trackArtist) trackArtist.innerText = 'Tệp nhạc cá nhân';
+                playAudio();
+            }
+        }
+
+        function togglePlayPause() {
+            const audioPlayer = document.getElementById('audio-player');
+            if (!audioPlayer.src) {
+                // Default track fallback if empty
+                audioPlayer.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+            }
+            if (isPlaying) {
+                pauseAudio();
+            } else {
+                playAudio();
+            }
+        }
+
+        function playAudio() {
+            const audioPlayer = document.getElementById('audio-player');
+            const playIcon = document.getElementById('media-play-icon');
+            const discIcon = document.getElementById('media-disc-icon');
+            if (audioPlayer) {
+                audioPlayer.play();
+                isPlaying = true;
+                if (playIcon) playIcon.setAttribute('data-lucide', 'pause');
+                if (discIcon) discIcon.classList.add('animate-spin');
+                lucide.createIcons();
+            }
+        }
+
+        function pauseAudio() {
+            const audioPlayer = document.getElementById('audio-player');
+            const playIcon = document.getElementById('media-play-icon');
+            const discIcon = document.getElementById('media-disc-icon');
+            if (audioPlayer) {
+                audioPlayer.pause();
+                isPlaying = false;
+                if (playIcon) playIcon.setAttribute('data-lucide', 'play');
+                if (discIcon) discIcon.classList.remove('animate-spin');
+                lucide.createIcons();
+            }
+        }
+
+        function stopAndCloseMediaPlayer() {
+            pauseAudio();
+            closeWindow('mediaplayer');
+        }
+
+        function setVolume(val) {
+            const audioPlayer = document.getElementById('audio-player');
+            if (audioPlayer) audioPlayer.volume = val;
+        }
+
+        /* Task Manager Tab Switching */
+        function switchTaskTab(tabName) {
+            const perfView = document.getElementById('task-view-performance');
+            const procView = document.getElementById('task-view-processes');
+            const perfBtn = document.getElementById('task-tab-btn-perf');
+            const procBtn = document.getElementById('task-tab-btn-proc');
+
+            if (tabName === 'performance') {
+                if (perfView) perfView.classList.remove('hidden');
+                if (procView) procView.classList.add('hidden');
+                if (perfBtn) perfBtn.className = 'flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/30 text-emerald-200 font-medium text-left border border-emerald-400/40 shadow-sm';
+                if (procBtn) procBtn.className = 'flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-300 text-left';
+            } else {
+                if (perfView) perfView.classList.add('hidden');
+                if (procView) procView.classList.remove('hidden');
+                if (procBtn) procBtn.className = 'flex items-center gap-2 px-3 py-2 rounded-xl bg-emerald-500/30 text-emerald-200 font-medium text-left border border-emerald-400/40 shadow-sm';
+                if (perfBtn) perfBtn.className = 'flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-300 text-left';
+            }
+        }
+
+        /* Settings Tab Switching */
+        function switchSettingsTab(tabName) {
+            const personalView = document.getElementById('set-view-personalization');
+            const sysView = document.getElementById('set-view-system');
+            const personalBtn = document.getElementById('set-tab-btn-personal');
+            const sysBtn = document.getElementById('set-tab-btn-sys');
+
+            if (tabName === 'personalization') {
+                if (personalView) personalView.classList.remove('hidden');
+                if (sysView) sysView.classList.add('hidden');
+                if (personalBtn) personalBtn.className = 'flex items-center gap-2.5 px-3 py-2 rounded-xl bg-cyan-500/30 text-cyan-200 font-medium text-left border border-cyan-400/40 shadow-sm';
+                if (sysBtn) sysBtn.className = 'flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-300 text-left';
+            } else {
+                if (personalView) personalView.classList.add('hidden');
+                if (sysView) sysView.classList.remove('hidden');
+                if (sysBtn) sysBtn.className = 'flex items-center gap-2.5 px-3 py-2 rounded-xl bg-cyan-500/30 text-cyan-200 font-medium text-left border border-cyan-400/40 shadow-sm';
+                if (personalBtn) personalBtn.className = 'flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-white/10 text-slate-300 text-left';
+            }
+        }
+
+        /* Toggle UI Menus */
+        function toggleStartMenu() {
+            playSound('click');
+            const startMenu = document.getElementById('start-menu');
+            if (startMenu) startMenu.classList.toggle('hidden');
+        }
+
+        function toggleControlCenter() {
+            playSound('click');
+            const controlCenter = document.getElementById('control-center');
+            if (controlCenter) controlCenter.classList.toggle('hidden');
+        }
+
+        function toggleQuickSetting(btn, type) {
+            playSound('click');
+            if (btn) btn.classList.toggle('active');
+        }
+
+        /* Draggable App Windows Implementation */
+        function setupDraggableWindows() {
+            document.querySelectorAll('.app-window').forEach(win => {
+                const header = win.querySelector('[id$="-header"]');
+                if (!header) return;
+
+                let isDragging = false;
+                let startX, startY, initialLeft, initialTop;
+
+                header.onmousedown = (e) => {
+                    if (win.classList.contains('window-fullscreen')) return;
+                    isDragging = true;
+                    startX = e.clientX;
+                    startY = e.clientY;
+                    initialLeft = win.offsetLeft;
+                    initialTop = win.offsetTop;
+                    win.style.zIndex = 40;
+
+                    document.onmousemove = (e) => {
+                        if (!isDragging) return;
+                        const dx = e.clientX - startX;
+                        const dy = e.clientY - startY;
+                        win.style.left = `${initialLeft + dx}px`;
+                        win.style.top = `${initialTop + dy}px`;
+                    };
+
+                    document.onmouseup = () => {
+                        isDragging = false;
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    };
+                };
             });
         }
 
-        // Make all windows draggable
-        makeWindowDraggable('explorer');
-        makeWindowDraggable('mediaplayer');
-        makeWindowDraggable('settings');
-
-        /* DESKTOP ICON REORDERING VIA DRAG & DROP */
-        let draggedIcon = null;
-
+        /* Desktop Drag and Drop Icon Positions */
+        let draggedIconId = null;
         function handleIconDragStart(e) {
-            draggedIcon = e.currentTarget;
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/plain', e.currentTarget.id);
+            draggedIconId = e.currentTarget.id;
+            e.dataTransfer.setData('text/plain', draggedIconId);
         }
 
         function handleIconDragOver(e) {
             e.preventDefault();
-            e.dataTransfer.dropEffect = 'move';
         }
 
         function handleIconDrop(e) {
             e.preventDefault();
             const targetIcon = e.currentTarget;
-            const container = document.getElementById('desktop-icons');
-
-            if (draggedIcon && targetIcon && draggedIcon !== targetIcon) {
-                const icons = Array.from(container.children);
-                const draggedIdx = icons.indexOf(draggedIcon);
-                const targetIdx = icons.indexOf(targetIcon);
-
-                if (draggedIdx < targetIdx) {
-                    container.insertBefore(draggedIcon, targetIcon.nextSibling);
-                } else {
-                    container.insertBefore(draggedIcon, targetIcon);
+            if (draggedIconId && targetIcon && targetIcon.id !== draggedIconId) {
+                const container = document.getElementById('desktop-icons');
+                const draggedEl = document.getElementById(draggedIconId);
+                if (container && draggedEl) {
+                    container.insertBefore(draggedEl, targetIcon);
                 }
             }
-        }
-
-        /* WEB AUDIO SYNTHESIZED SYSTEM SOUND EFFECTS */
-        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
-        function playSystemSound(type) {
-            if (audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-            
-            const osc = audioCtx.createOscillator();
-            const gain = audioCtx.createGain();
-            osc.connect(gain);
-            gain.connect(audioCtx.destination);
-
-            const now = audioCtx.currentTime;
-
-            if (type === 'open') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(440, now);
-                osc.frequency.exponentialRampToValueAtTime(880, now + 0.12);
-                gain.gain.setValueAtTime(0.08, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-                osc.start(now);
-                osc.stop(now + 0.12);
-            } else if (type === 'close') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(600, now);
-                osc.frequency.exponentialRampToValueAtTime(300, now + 0.12);
-                gain.gain.setValueAtTime(0.08, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-                osc.start(now);
-                osc.stop(now + 0.12);
-            } else if (type === 'swipe') {
-                osc.type = 'triangle';
-                osc.frequency.setValueAtTime(220, now);
-                osc.frequency.exponentialRampToValueAtTime(520, now + 0.25);
-                gain.gain.setValueAtTime(0.06, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
-                osc.start(now);
-                osc.stop(now + 0.25);
-            } else if (type === 'startup') {
-                // Windows 12 Concept Chime
-                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
-                notes.forEach((freq, idx) => {
-                    const noteOsc = audioCtx.createOscillator();
-                    const noteGain = audioCtx.createGain();
-                    noteOsc.type = 'sine';
-                    noteOsc.frequency.setValueAtTime(freq, now + idx * 0.1);
-                    noteOsc.connect(noteGain);
-                    noteGain.connect(audioCtx.destination);
-
-                    noteGain.gain.setValueAtTime(0, now + idx * 0.1);
-                    noteGain.gain.linearRampToValueAtTime(0.1, now + idx * 0.1 + 0.05);
-                    noteGain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.1 + 0.8);
-
-                    noteOsc.start(now + idx * 0.1);
-                    noteOsc.stop(now + idx * 0.1 + 0.8);
-                });
-            } else if (type === 'power') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(440, now);
-                osc.frequency.exponentialRampToValueAtTime(110, now + 0.4);
-                gain.gain.setValueAtTime(0.1, now);
-                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.4);
-                osc.start(now);
-                osc.stop(now + 0.4);
-            } else if (type === 'shutdown') {
-                const notes = [1046.50, 783.99, 659.25, 523.25];
-                notes.forEach((freq, idx) => {
-                    const noteOsc = audioCtx.createOscillator();
-                    const noteGain = audioCtx.createGain();
-                    noteOsc.type = 'sine';
-                    noteOsc.frequency.setValueAtTime(freq, now + idx * 0.12);
-                    noteOsc.connect(noteGain);
-                    noteGain.connect(audioCtx.destination);
-
-                    noteGain.gain.setValueAtTime(0.08, now + idx * 0.12);
-                    noteGain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.12 + 0.6);
-
-                    noteOsc.start(now + idx * 0.12);
-                    noteOsc.stop(now + idx * 0.12 + 0.6);
-                });
-            }
-        }
-
-        // CONTROL CENTER QUICK SETTINGS LOGIC
-        function toggleControlCenter() {
-            const cc = document.getElementById('control-center');
-            const startMenu = document.getElementById('start-menu');
-            if (startMenu) startMenu.classList.add('hidden');
-            if (cc) {
-                cc.classList.toggle('hidden');
-                playSystemSound('open');
-            }
-        }
-
-        function toggleQuickSetting(btn, setting) {
-            btn.classList.toggle('active');
-            playSystemSound('open');
-        }
-
-        function setSystemVolume(val) {
-            if (audioPlayer) audioPlayer.volume = val / 100;
-        }
-
-        function setSystemBrightness(val) {
-            const osBody = document.getElementById('os-body');
-            if (osBody) {
-                osBody.style.filter = `brightness(${val}%)`;
-            }
-        }
-
-        // PERSISTENT WALLPAPER (localStorage)
-        function applySavedWallpaper() {
-            const savedBg = localStorage.getItem('win12_custom_wallpaper');
-            const osBody = document.getElementById('os-body');
-
-            if (!osBody) return;
-
-            if (savedBg) {
-                if (savedBg.startsWith('preset:')) {
-                    const preset = savedBg.replace('preset:', '');
-                    applyPresetStyle(preset);
-                } else {
-                    osBody.style.backgroundImage = `url('${savedBg}')`;
-                    osBody.style.backgroundSize = 'cover';
-                    osBody.style.backgroundPosition = 'center';
-                }
-            } else {
-                applyPresetStyle('default');
-            }
-        }
-
-        function applyPresetStyle(preset) {
-            const osBody = document.getElementById('os-body');
-            if (!osBody) return;
-
-            if (preset === 'default') {
-                osBody.style.backgroundImage = '';
-                osBody.className = 'h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100 desktop-bg-default';
-            } else if (preset === 'aurora') {
-                osBody.className = 'h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100';
-                osBody.style.backgroundImage = 'radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.4) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(14, 165, 233, 0.4) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%)';
-            } else if (preset === 'sunset') {
-                osBody.className = 'h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100';
-                osBody.style.backgroundImage = 'radial-gradient(circle at 20% 20%, rgba(244, 63, 94, 0.4) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.4) 0%, transparent 50%), radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 1) 0%, rgba(2, 6, 23, 1) 100%)';
-            }
-        }
-
-        function handleWallpaperImport(event) {
-            const file = event.target.files[0];
-            processWallpaperFile(file);
-        }
-
-        function processWallpaperFile(file) {
-            if (file && file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const bgUrl = e.target.result;
-                    try {
-                        localStorage.setItem('win12_custom_wallpaper', bgUrl);
-                    } catch (err) {
-                        console.warn("Storage quota exceeded or restricted. Wallpaper applied for current session.");
-                    }
-                    applySavedWallpaper();
-                    playSystemSound('open');
-                };
-                reader.readAsDataURL(file);
-            }
-        }
-
-        // DRAG AND DROP WALLPAPER HANDLERS
-        function handleDragOver(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const zone = document.getElementById('wallpaper-drop-zone');
-            if (zone) zone.classList.add('drag-over');
-        }
-
-        function handleDragLeave(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const zone = document.getElementById('wallpaper-drop-zone');
-            if (zone) zone.classList.remove('drag-over');
-        }
-
-        function handleDropWallpaper(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            const zone = document.getElementById('wallpaper-drop-zone');
-            if (zone) zone.classList.remove('drag-over');
-
-            const dt = event.dataTransfer;
-            const files = dt.files;
-            if (files && files.length > 0) {
-                processWallpaperFile(files[0]);
-            }
-        }
-
-        function setWallpaperPreset(preset) {
-            localStorage.setItem('win12_custom_wallpaper', `preset:${preset}`);
-            applySavedWallpaper();
-            playSystemSound('open');
-        }
-
-        // Apply saved wallpaper immediately
-        applySavedWallpaper();
-
-        // Settings Tab Switcher
-        function switchSettingsTab(tabName) {
-            document.querySelectorAll('[id^="settings-tab-"]').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll('.settings-tab-btn').forEach(btn => {
-                btn.classList.remove('bg-cyan-500/20', 'text-cyan-300');
-                btn.classList.add('hover:bg-white/5', 'text-slate-400');
-            });
-
-            const activeTab = document.getElementById(`settings-tab-${tabName}`);
-            const activeBtn = document.getElementById(`tab-btn-${tabName}`);
-
-            if (activeTab) activeTab.classList.remove('hidden');
-            if (activeBtn) {
-                activeBtn.classList.add('bg-cyan-500/20', 'text-cyan-300');
-                activeBtn.classList.remove('hover:bg-white/5', 'text-slate-400');
-            }
-        }
-
-        // Media Player Local Import & Playback
-        const audioPlayer = document.getElementById('audio-player');
-        let isPlaying = false;
-
-        function handleMediaImport(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const fileUrl = URL.createObjectURL(file);
-                audioPlayer.src = fileUrl;
-                
-                document.getElementById('media-track-title').textContent = file.name.replace(/\.[^/.]+$/, "");
-                document.getElementById('media-track-artist').textContent = file.type || "Local File";
-                
-                audioPlayer.play();
-                isPlaying = true;
-                updatePlayPauseIcon();
-            }
-        }
-
-        function togglePlayPause() {
-            if (!audioPlayer.src) return;
-            if (isPlaying) {
-                audioPlayer.pause();
-                isPlaying = false;
-            } else {
-                audioPlayer.play();
-                isPlaying = true;
-            }
-            updatePlayPauseIcon();
-        }
-
-        function updatePlayPauseIcon() {
-            const playIcon = document.getElementById('media-play-icon');
-            const discIcon = document.getElementById('media-disc-icon');
-            if (playIcon) {
-                playIcon.setAttribute('data-lucide', isPlaying ? 'pause' : 'play');
-                lucide.createIcons();
-            }
-            if (discIcon) {
-                if (isPlaying) {
-                    discIcon.classList.add('animate-spin');
-                } else {
-                    discIcon.classList.remove('animate-spin');
-                }
-            }
-        }
-
-        function setVolume(val) {
-            if (audioPlayer) audioPlayer.volume = val;
-        }
-
-        function seekAudio(event) {
-            if (!audioPlayer.duration) return;
-            const rect = event.currentTarget.getBoundingClientRect();
-            const clickPos = (event.clientX - rect.left) / rect.width;
-            audioPlayer.currentTime = clickPos * audioPlayer.duration;
-        }
-
-        if (audioPlayer) {
-            audioPlayer.ontimeupdate = function() {
-                if (!audioPlayer.duration) return;
-                const progressPct = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-                document.getElementById('media-progress').style.width = `${progressPct}%`;
-
-                const curMin = Math.floor(audioPlayer.currentTime / 60);
-                const curSec = Math.floor(audioPlayer.currentTime % 60).toString().padStart(2, '0');
-                const durMin = Math.floor(audioPlayer.duration / 60);
-                const durSec = Math.floor(audioPlayer.duration % 60).toString().padStart(2, '0');
-
-                document.getElementById('media-current-time').textContent = `${curMin}:${curSec}`;
-                document.getElementById('media-duration').textContent = `${durMin}:${durSec}`;
-            };
-        }
-
-        // Boot Screen Sequence
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const bootScreen = document.getElementById('boot-screen');
-                const workspaceSlider = document.getElementById('workspace-slider');
-                const bottomDock = document.getElementById('bottom-dock');
-                
-                if (bootScreen) bootScreen.style.opacity = '0';
-                playSystemSound('startup');
-                setTimeout(() => {
-                    if (bootScreen) bootScreen.style.display = 'none';
-                    if (workspaceSlider) workspaceSlider.style.opacity = '1';
-                    if (bottomDock) bottomDock.classList.add('dock-slide-up');
-                }, 1000);
-            }, 2500);
-        });
-
-        // Real-time Clock
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const day = String(now.getDate()).padStart(2, '0');
-            const month = String(now.getMonth() + 1).padStart(2, '0');
-            const year = now.getFullYear();
-
-            const clockEl = document.getElementById('clock');
-            const dateEl = document.getElementById('date');
-
-            if (clockEl) clockEl.textContent = `${hours}:${minutes}`;
-            if (dateEl) dateEl.textContent = `${day}/${month}/${year}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-
-        // Toggle Start Menu
-        function toggleStartMenu() {
-            const startMenu = document.getElementById('start-menu');
-            const cc = document.getElementById('control-center');
-            if (cc) cc.classList.add('hidden');
-            if (startMenu) startMenu.classList.toggle('hidden');
-        }
-
-        /* DESKTOP DIRECT ZOOM LAUNCHER CONTROLS */
-        function openWindow(id) {
-            const win = document.getElementById(`window-${id}`);
-            const dot = document.getElementById(`dot-${id}`);
-            if (win) {
-                // Focus window
-                activeZIndex++;
-                win.style.zIndex = activeZIndex;
-
-                win.classList.remove('hidden', 'window-closing');
-                win.classList.add('window-opening');
-                if (dot) dot.classList.remove('hidden');
-                playSystemSound('open');
-            }
-        }
-
-        function minimizeWindow(id) {
-            closeWindow(id);
-        }
-
-        function closeWindow(id) {
-            if (activeFullscreenApp === id) {
-                exitFullscreenApp();
-            }
-
-            const win = document.getElementById(`window-${id}`);
-            const dot = document.getElementById(`dot-${id}`);
-            if (win) {
-                win.classList.remove('window-opening');
-                win.classList.add('window-closing');
-                playSystemSound('close');
-                setTimeout(() => {
-                    win.classList.add('hidden');
-                    win.classList.remove('window-closing');
-                    if (dot) dot.classList.add('hidden');
-                }, 280);
-            }
-        }
-
-        /* STAGGERED FULLSCREEN WORKSPACE LEFT SWIPE FEATURE */
-        let activeFullscreenApp = null;
-
-        function toggleFullscreenApp(id) {
-            if (activeFullscreenApp === id) {
-                exitFullscreenApp();
-            } else {
-                enterFullscreenApp(id);
-            }
-        }
-
-        function enterFullscreenApp(id) {
-            const win = document.getElementById(`window-${id}`);
-            const slider = document.getElementById('workspace-slider');
-            const hoverZone = document.getElementById('fullscreen-hover-zone');
-            const appTitle = document.getElementById('fullscreen-app-title');
-
-            if (!win) return;
-
-            activeFullscreenApp = id;
-
-            if (appTitle) {
-                const titleMap = {
-                    'explorer': 'File Explorer - Windows 12 Workspace',
-                    'mediaplayer': 'Media Player - Windows 12 Workspace',
-                    'settings': 'Settings - Windows 12 Workspace'
-                };
-                appTitle.textContent = titleMap[id] || 'Application - Workspace';
-            }
-
-            playSystemSound('swipe');
-            win.classList.remove('window-opening', 'window-closing');
-            win.classList.add('window-fullscreen');
-            if (slider) slider.classList.add('workspace-swiped');
-            if (hoverZone) hoverZone.classList.remove('hidden');
-        }
-
-        function exitFullscreenApp() {
-            if (!activeFullscreenApp) return;
-
-            const win = document.getElementById(`window-${activeFullscreenApp}`);
-            const slider = document.getElementById('workspace-slider');
-            const hoverZone = document.getElementById('fullscreen-hover-zone');
-
-            playSystemSound('swipe');
-            if (win) win.classList.remove('window-fullscreen');
-            if (slider) slider.classList.remove('workspace-swiped');
-            if (hoverZone) hoverZone.classList.add('hidden');
-
-            activeFullscreenApp = null;
-        }
-
-        // Shutdown Screen Controls
-        function showShutdownMenu() {
-            const shutdownMenu = document.getElementById('shutdown-screen');
-            const card = document.getElementById('power-card');
-            const startMenu = document.getElementById('start-menu');
-            const cc = document.getElementById('control-center');
-
-            playSystemSound('power');
-            if (startMenu) startMenu.classList.add('hidden');
-            if (cc) cc.classList.add('hidden');
-            if (shutdownMenu) shutdownMenu.classList.remove('hidden');
-            setTimeout(() => {
-                if (shutdownMenu) shutdownMenu.classList.remove('opacity-0');
-                if (card) {
-                    card.classList.remove('scale-95');
-                    card.classList.add('scale-100');
-                }
-            }, 10);
-        }
-
-        function closeShutdownMenu() {
-            const shutdownMenu = document.getElementById('shutdown-screen');
-            const card = document.getElementById('power-card');
-
-            if (card) {
-                card.classList.remove('scale-100');
-                card.classList.add('scale-95');
-            }
-            if (shutdownMenu) shutdownMenu.classList.add('opacity-0');
-            setTimeout(() => {
-                if (shutdownMenu) shutdownMenu.classList.add('hidden');
-            }, 400);
-        }
-
-        function executePowerAction(action) {
-            closeShutdownMenu();
-
-            if (action === 'sleep') {
-                setTimeout(() => {
-                    const osBody = document.getElementById('os-body');
-                    if (osBody) {
-                        osBody.style.filter = 'brightness(0.1)';
-                        setTimeout(() => {
-                            osBody.style.filter = 'none';
-                        }, 3000);
-                    }
-                }, 400);
-                return;
-            }
-
-            playSystemSound('shutdown');
-
-            closeWindow('explorer');
-            closeWindow('mediaplayer');
-            closeWindow('settings');
-
-            setTimeout(() => {
-                const topPanel = document.getElementById('top-panel');
-                const bottomDock = document.getElementById('bottom-dock');
-                const desktopIcons = document.getElementById('desktop-icons');
-
-                if (topPanel) {
-                    topPanel.classList.add('panel-slide-out');
-                }
-                if (bottomDock) {
-                    bottomDock.classList.remove('dock-slide-up');
-                    bottomDock.classList.add('dock-slide-out');
-                }
-
-                setTimeout(() => {
-                    if (desktopIcons) desktopIcons.classList.add('fade-out-icons');
-                }, 300);
-
-                setTimeout(() => {
-                    if (action === 'shutdown') {
-                        document.body.innerHTML = `
-                            <div class="h-screen w-screen bg-black flex flex-col items-center justify-center text-slate-400 text-sm font-sans gap-4">
-                                <div class="win-spinner mb-2">
-                                    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-                                </div>
-                                <span>Đang tắt máy...</span>
-                            </div>`;
-                        setTimeout(() => {
-                            document.body.innerHTML = `<div class="h-screen w-screen bg-black flex items-center justify-center text-slate-800 text-xs font-mono">Hệ thống đã tắt an toàn. Bấm F5 để bật lại.</div>`;
-                        }, 2500);
-                    } else if (action === 'restart') {
-                        document.body.innerHTML = `
-                            <div class="h-screen w-screen bg-black flex flex-col items-start justify-center p-12 text-slate-300 font-mono text-xs leading-relaxed select-none">
-                                <p class="text-cyan-400 font-bold mb-2">&gt; SYSTEM_RESTART_REQUESTED</p>
-                                <p>&gt; Unmounting filesystems...</p>
-                                <p>&gt; Stopping background services...</p>
-                                <p class="text-emerald-400">&gt; System reboot in progress...</p>
-                            </div>`;
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1800);
-                    }
-                }, 1000);
-            }, 300);
         }
     </script>
 </body>
