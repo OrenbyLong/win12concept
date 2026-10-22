@@ -32,32 +32,81 @@
             background: rgba(255, 255, 255, 0.45);
         }
 
-        /* LIQUID GLASS ULTRA-REFRACTIVE STYLES */
+        /* DYNAMIC LIQUID X100 REFRACTIVE STYLES */
         .liquid-glass {
-            background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(15, 23, 42, 0.65) 100%);
-            backdrop-filter: blur(40px) saturate(210%) brightness(1.1);
-            -webkit-backdrop-filter: blur(40px) saturate(210%) brightness(1.1);
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45), 
-                        inset 0 1px 0 rgba(255, 255, 255, 0.5), 
-                        inset 0 -1px 0 rgba(255, 255, 255, 0.1);
+            background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.08) 50%, rgba(15, 23, 42, 0.75) 100%);
+            backdrop-filter: blur(50px) saturate(240%) brightness(1.15);
+            -webkit-backdrop-filter: blur(50px) saturate(240%) brightness(1.15);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5), 
+                        inset 0 1px 1px rgba(255, 255, 255, 0.7), 
+                        inset 0 -1px 0 rgba(255, 255, 255, 0.2);
+            animation: glassGlowPulse 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes glassGlowPulse {
+            0% { border-color: rgba(255, 255, 255, 0.25); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.5); }
+            100% { border-color: rgba(56, 189, 248, 0.6); box-shadow: 0 35px 80px rgba(56, 189, 248, 0.25), inset 0 1px 3px rgba(255, 255, 255, 0.8); }
         }
 
         .liquid-glass-panel {
-            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.18) 0%, rgba(15, 23, 42, 0.78) 70%);
-            backdrop-filter: blur(50px) saturate(220%);
-            -webkit-backdrop-filter: blur(50px) saturate(220%);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.6), 
-                        inset 0 1px 1px rgba(255, 255, 255, 0.45);
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.22) 0%, rgba(15, 23, 42, 0.85) 70%);
+            backdrop-filter: blur(60px) saturate(250%);
+            -webkit-backdrop-filter: blur(60px) saturate(250%);
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.7), 
+                        inset 0 1px 2px rgba(255, 255, 255, 0.6);
+        }
+
+        /* DYNAMIC AURA ORBS (SẮC ĐỘNG X100) */
+        .aura-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.6;
+            pointer-events: none;
+            will-change: transform;
+            animation: floatOrb 12s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+        }
+
+        .aura-1 {
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.8), rgba(99, 102, 241, 0.4));
+            top: -10%;
+            left: 10%;
+            animation-duration: 14s;
+        }
+
+        .aura-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.75), rgba(168, 85, 247, 0.35));
+            bottom: -15%;
+            right: 5%;
+            animation-duration: 18s;
+            animation-delay: -4s;
+        }
+
+        .aura-3 {
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(34, 197, 94, 0.6), rgba(14, 165, 233, 0.4));
+            top: 40%;
+            left: 45%;
+            animation-duration: 10s;
+            animation-delay: -2s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            50% { transform: translate(60px, -40px) scale(1.15) rotate(180deg); }
+            100% { transform: translate(-50px, 50px) scale(0.9) rotate(360deg); }
         }
 
         /* Iridescent Liquid Aura Background */
         .desktop-bg-liquid {
-            background: radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.5) 0%, transparent 40%),
-                        radial-gradient(circle at 90% 80%, rgba(236, 72, 153, 0.45) 0%, transparent 45%),
-                        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
-                        linear-gradient(135deg, #030712 0%, #0f172a 50%, #020617 100%);
+            background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #030712 100%);
             background-size: cover;
             background-position: center;
         }
@@ -158,7 +207,7 @@
         }
 
         .desktop-icon-item:hover {
-            transform: scale(1.12) translateY(-4px);
+            transform: scale(1.15) translateY(-6px);
         }
 
         .desktop-icon-item:active {
@@ -305,7 +354,12 @@
         }
     </style>
 </head>
-<body id="os-body" class="h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100 desktop-bg-liquid" onclick="initAudioContextOnUserGesture()">
+<body id="os-body" class="h-screen w-screen overflow-hidden select-none bg-slate-950 text-slate-100 desktop-bg-liquid relative" onclick="initAudioContextOnUserGesture()">
+
+    <!-- DYNAMIC BACKGROUND ORBS (SẮC ĐỘNG X100) -->
+    <div class="aura-orb aura-1"></div>
+    <div class="aura-orb aura-2"></div>
+    <div class="aura-orb aura-3"></div>
 
     <!-- BOOT SCREEN -->
     <div id="boot-screen" class="fixed inset-0 z-50 bg-black flex flex-col items-center justify-between py-16 transition-opacity duration-1000">
@@ -389,6 +443,13 @@
 
         <div class="text-xs font-semibold text-slate-300 mb-3 px-1">Ứng dụng đã ghim</div>
         <div class="grid grid-cols-4 gap-3 mb-6">
+            <button onclick="openWindow('games'); toggleStartMenu();" class="flex flex-col items-center p-3 rounded-2xl hover:bg-white/10 transition group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
+                    <i data-lucide="gamepad-2" class="w-5 h-5 text-white"></i>
+                </div>
+                <span class="text-[11px] mt-2 text-slate-200">Game Arcade</span>
+            </button>
+
             <button onclick="openWindow('taskmgr'); toggleStartMenu();" class="flex flex-col items-center p-3 rounded-2xl hover:bg-white/10 transition group">
                 <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition">
                     <i data-lucide="activity" class="w-5 h-5 text-white"></i>
@@ -537,6 +598,14 @@
             <!-- DESKTOP WORKSPACE & ICONS -->
             <main id="desktop-icons" class="desktop-icons-container flex-1 relative my-2 p-2 transition-all duration-500">
                 
+                <!-- Desktop Icon 0: Game Arcade (Mới thêm) -->
+                <div id="icon-games" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('games')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/20 active:bg-white/30 transition group border border-transparent hover:border-white/30 hover:shadow-2xl hover:shadow-amber-500/30">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-orange-500 to-purple-600 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 border border-white/30">
+                        <i data-lucide="gamepad-2" class="w-6 h-6 text-white"></i>
+                    </div>
+                    <span class="text-[11px] text-center mt-1 text-slate-100 drop-shadow font-medium truncate w-full px-1">Game Arcade</span>
+                </div>
+
                 <!-- Desktop Icon 1: Task Manager -->
                 <div id="icon-taskmgr" ondragstart="handleIconDragStart(event)" ondragover="handleIconDragOver(event)" ondrop="handleIconDrop(event)" draggable="true" onclick="openWindow('taskmgr')" class="desktop-icon-item flex flex-col items-center justify-center p-2 rounded-2xl hover:bg-white/20 active:bg-white/30 transition group border border-transparent hover:border-white/30 hover:shadow-2xl hover:shadow-emerald-500/20">
                     <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center shadow-lg group-hover:scale-110 transition duration-300 border border-white/30">
@@ -577,6 +646,12 @@
 
                     <div class="h-6 w-[1px] bg-white/20"></div>
 
+                    <!-- Dock Icon: Games -->
+                    <button id="dock-games" onclick="openWindow('games')" class="dock-item p-2.5 rounded-2xl hover:bg-white/15 relative text-amber-300" title="Game Arcade">
+                        <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+                        <span id="dot-games" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-amber-400 rounded-full shadow-md shadow-amber-400"></span>
+                    </button>
+
                     <button id="dock-taskmgr" onclick="openWindow('taskmgr')" class="dock-item p-2.5 rounded-2xl hover:bg-white/15 relative text-emerald-300" title="Task Manager">
                         <i data-lucide="activity" class="w-6 h-6"></i>
                         <span id="dot-taskmgr" class="hidden absolute bottom-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-emerald-400 rounded-full shadow-md shadow-emerald-400"></span>
@@ -599,6 +674,87 @@
                     </button>
                 </div>
             </footer>
+        </div>
+
+        <!-- APP WINDOW 0: Game Arcade (Mới thêm) -->
+        <div id="window-games" class="app-window hidden fixed w-11/12 max-w-3xl h-[540px] liquid-glass-panel rounded-3xl flex flex-col shadow-2xl overflow-hidden z-20 border border-amber-400/40" style="top: 8%; left: 16%;">
+            <div id="window-games-header" class="h-11 px-5 bg-white/10 flex items-center justify-between border-b border-white/20 cursor-move select-none backdrop-blur-md">
+                <div class="flex items-center gap-2.5 text-xs font-semibold text-amber-200 pointer-events-none">
+                    <i data-lucide="gamepad-2" class="w-4 h-4 text-amber-400"></i>
+                    <span>Windows 12 Liquid Game Arcade</span>
+                </div>
+                <div class="window-action-buttons flex items-center gap-2">
+                    <button onclick="minimizeWindow('games')" class="w-3.5 h-3.5 rounded-full bg-amber-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Thu nhỏ">_</button>
+                    <button onclick="toggleFullscreenApp('games')" class="w-3.5 h-3.5 rounded-full bg-emerald-400 hover:opacity-80 flex items-center justify-center text-[8px] text-black font-bold shadow-md" title="Toàn màn hình">□</button>
+                    <button onclick="closeWindow('games')" class="w-3.5 h-3.5 rounded-full bg-rose-500 hover:opacity-80 flex items-center justify-center text-[8px] text-white font-bold shadow-md" title="Đóng">✕</button>
+                </div>
+            </div>
+            
+            <div class="flex-1 flex overflow-hidden">
+                <!-- Game Tabs Sidebar -->
+                <div class="w-48 bg-white/5 p-3 border-r border-white/10 flex flex-col gap-1.5 text-xs">
+                    <button onclick="switchGameTab('flappy')" id="game-tab-btn-flappy" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-amber-500/30 text-amber-200 font-semibold text-left border border-amber-400/40 shadow-sm transition">
+                        <i data-lucide="zap" class="w-4 h-4 text-amber-300"></i> Flappy Liquid
+                    </button>
+                    <button onclick="switchGameTab('tictactoe')" id="game-tab-btn-ttt" class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-white/10 text-slate-300 text-left transition">
+                        <i data-lucide="grid" class="w-4 h-4 text-cyan-300"></i> Cờ Caro OS
+                    </button>
+                </div>
+
+                <!-- Game Content Screen -->
+                <div class="flex-1 p-4 flex flex-col justify-center items-center relative overflow-hidden bg-gradient-to-b from-slate-900/40 to-slate-950/80">
+                    
+                    <!-- GAME 1: FLAPPY LIQUID CANVAS -->
+                    <div id="game-view-flappy" class="w-full h-full flex flex-col items-center justify-between">
+                        <div class="w-full flex justify-between items-center mb-2 px-2">
+                            <span class="text-xs font-semibold text-slate-200">Bấm Space hoặc Click chuột để nhảy</span>
+                            <div class="flex gap-4 text-xs font-mono">
+                                <span class="text-amber-300">Điểm: <b id="flappy-score">0</b></span>
+                                <span class="text-emerald-300">Cao nhất: <b id="flappy-high-score">0</b></span>
+                            </div>
+                        </div>
+                        
+                        <div class="relative flex-1 w-full flex items-center justify-center">
+                            <canvas id="flappy-canvas" width="480" height="360" class="rounded-2xl border border-white/20 shadow-2xl bg-slate-950/90 cursor-pointer"></canvas>
+                            
+                            <!-- Game Start / Game Over Overlay -->
+                            <div id="flappy-overlay" class="absolute inset-0 flex flex-col items-center justify-center bg-black/60 backdrop-blur-sm rounded-2xl text-center p-6">
+                                <h3 id="flappy-status-title" class="text-2xl font-bold text-amber-300 mb-2">FLAPPY LIQUID OS</h3>
+                                <p id="flappy-status-desc" class="text-xs text-slate-300 mb-6 max-w-xs">Điều khiển hạt nước sinh động vượt qua các cột năng lượng Liquid!</p>
+                                <button onclick="startFlappyGame()" class="px-6 py-2.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 hover:opacity-90 text-white font-bold text-xs shadow-lg shadow-amber-500/40 transition border border-white/30">
+                                    Chơi ngay
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GAME 2: TIC-TAC-TOE CARO -->
+                    <div id="game-view-tictactoe" class="hidden w-full h-full flex flex-col items-center justify-center">
+                        <div class="text-center mb-4">
+                            <h3 class="text-lg font-bold text-cyan-300">Cờ Caro OS vs AI</h3>
+                            <p id="ttt-status" class="text-xs text-slate-300 mt-1">Lượt của bạn (X)</p>
+                        </div>
+
+                        <div id="ttt-board" class="grid grid-cols-3 gap-3 bg-white/10 p-4 rounded-3xl border border-white/20 shadow-2xl">
+                            <!-- 9 Caro Cells -->
+                            <button onclick="makeTTTMove(0)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(1)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(2)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(3)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(4)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(5)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(6)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(7)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                            <button onclick="makeTTTMove(8)" class="ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition"></button>
+                        </div>
+
+                        <button onclick="resetTTTGame()" class="mt-5 px-5 py-2 rounded-2xl bg-cyan-500/30 hover:bg-cyan-500/50 text-cyan-200 text-xs font-semibold border border-cyan-400/40 transition">
+                            Ván mới
+                        </button>
+                    </div>
+
+                </div>
+            </div>
         </div>
 
         <!-- APP WINDOW 1: Task Manager -->
@@ -880,9 +1036,21 @@
                     osc.start(now);
                     osc.stop(now + 0.18);
                 }
+                else if (type === 'jump') {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(300, now);
+                    osc.frequency.exponentialRampToValueAtTime(600, now + 0.1);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.1);
+                }
                 else if (type === 'startup') {
-                    // Windows 12 Futuristic Chime (C Major chord progression)
-                    const freqs = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99]; // C4, E4, G4, C5, E5, G5
+                    const freqs = [261.63, 329.63, 392.00, 523.25, 659.25, 783.99];
                     freqs.forEach((freq, idx) => {
                         const osc = audioCtx.createOscillator();
                         const gain = audioCtx.createGain();
@@ -898,7 +1066,6 @@
                     });
                 }
                 else if (type === 'shutdown') {
-                    // Shutdown Descending Chime
                     const freqs = [659.25, 523.25, 392.00, 261.63];
                     freqs.forEach((freq, idx) => {
                         const osc = audioCtx.createOscillator();
@@ -931,8 +1098,8 @@
             initSystemMetrics();
             setupDraggableWindows();
             loadSavedWallpaper();
+            initFlappyGame();
 
-            // Hide Boot Screen on start & play boot sound
             setTimeout(() => {
                 const bootScreen = document.getElementById('boot-screen');
                 const workspace = document.getElementById('workspace-slider');
@@ -967,7 +1134,6 @@
 
             const cpuNameEl = document.getElementById('cpu-name-text');
             const cpuCoresEl = document.getElementById('cpu-cores-text');
-            const ramTypeEl = document.getElementById('ram-type-text');
             const metricRamVal = document.getElementById('metric-ram-val');
             const sysRamVal = document.getElementById('sys-ram-val');
 
@@ -976,7 +1142,6 @@
             if (metricRamVal) metricRamVal.innerText = `5.6 / ${ramGB} GB`;
             if (sysRamVal) sysRamVal.innerText = `${ramGB} GB RAM DDR5`;
 
-            // Dynamic random CPU metric update
             setInterval(() => {
                 const randomCpu = Math.floor(Math.random() * 25) + 8;
                 const barCpu = document.getElementById('bar-cpu');
@@ -984,6 +1149,260 @@
                 if (barCpu) barCpu.style.width = `${randomCpu}%`;
                 if (metricCpuVal) metricCpuVal.innerText = `${randomCpu}%`;
             }, 2500);
+        }
+
+        /* GAME 1: FLAPPY LIQUID ENGINE */
+        let flappyCanvas, flappyCtx;
+        let flappyBird = { x: 60, y: 150, vy: 0, radius: 12 };
+        let flappyPipes = [];
+        let flappyScore = 0;
+        let flappyHighScore = 0;
+        let isFlappyRunning = false;
+        let flappyAnimFrame = null;
+
+        function initFlappyGame() {
+            flappyCanvas = document.getElementById('flappy-canvas');
+            if (!flappyCanvas) return;
+            flappyCtx = flappyCanvas.getContext('2d');
+
+            flappyCanvas.onclick = () => {
+                if (isFlappyRunning) {
+                    flappyBird.vy = -5.8;
+                    playSound('jump');
+                }
+            };
+
+            window.addEventListener('keydown', (e) => {
+                if (e.code === 'Space' && isFlappyRunning) {
+                    e.preventDefault();
+                    flappyBird.vy = -5.8;
+                    playSound('jump');
+                }
+            });
+        }
+
+        function startFlappyGame() {
+            const overlay = document.getElementById('flappy-overlay');
+            if (overlay) overlay.classList.add('hidden');
+
+            flappyBird = { x: 60, y: 150, vy: 0, radius: 12 };
+            flappyPipes = [];
+            flappyScore = 0;
+            document.getElementById('flappy-score').innerText = '0';
+            isFlappyRunning = true;
+
+            if (flappyAnimFrame) cancelAnimationFrame(flappyAnimFrame);
+            loopFlappyGame();
+        }
+
+        function loopFlappyGame() {
+            if (!isFlappyRunning) return;
+
+            // Update Physics
+            flappyBird.vy += 0.32; // Gravity
+            flappyBird.y += flappyBird.vy;
+
+            // Spawn pipes
+            if (flappyPipes.length === 0 || flappyPipes[flappyPipes.length - 1].x < flappyCanvas.width - 160) {
+                const gap = 110;
+                const topH = Math.floor(Math.random() * (flappyCanvas.height - gap - 80)) + 40;
+                flappyPipes.push({
+                    x: flappyCanvas.width,
+                    topH: topH,
+                    gap: gap,
+                    passed: false
+                });
+            }
+
+            // Move pipes
+            flappyPipes.forEach(p => p.x -= 2.2);
+
+            // Check Pipe Score
+            flappyPipes.forEach(p => {
+                if (!p.passed && p.x + 40 < flappyBird.x) {
+                    p.passed = true;
+                    flappyScore++;
+                    document.getElementById('flappy-score').innerText = flappyScore;
+                    if (flappyScore > flappyHighScore) {
+                        flappyHighScore = flappyScore;
+                        document.getElementById('flappy-high-score').innerText = flappyHighScore;
+                    }
+                }
+            });
+
+            // Remove offscreen pipes
+            if (flappyPipes.length > 0 && flappyPipes[0].x < -60) {
+                flappyPipes.shift();
+            }
+
+            // Collision check
+            let collided = false;
+            if (flappyBird.y + flappyBird.radius >= flappyCanvas.height || flappyBird.y - flappyBird.radius <= 0) {
+                collided = true;
+            }
+
+            flappyPipes.forEach(p => {
+                if (flappyBird.x + flappyBird.radius > p.x && flappyBird.x - flappyBird.radius < p.x + 45) {
+                    if (flappyBird.y - flappyBird.radius < p.topH || flappyBird.y + flappyBird.radius > p.topH + p.gap) {
+                        collided = true;
+                    }
+                }
+            });
+
+            // RENDER CANVAS
+            flappyCtx.clearRect(0, 0, flappyCanvas.width, flappyCanvas.height);
+
+            // Draw Pipes (Liquid Neon Pillars)
+            flappyPipes.forEach(p => {
+                const gradTop = flappyCtx.createLinearGradient(p.x, 0, p.x + 45, p.topH);
+                gradTop.addColorStop(0, '#38bdf8');
+                gradTop.addColorStop(1, '#0284c7');
+                flappyCtx.fillStyle = gradTop;
+                flappyCtx.beginPath();
+                flappyCtx.roundRect(p.x, 0, 45, p.topH, [0, 0, 10, 10]);
+                flappyCtx.fill();
+
+                const gradBot = flappyCtx.createLinearGradient(p.x, p.topH + p.gap, p.x + 45, flappyCanvas.height);
+                gradBot.addColorStop(0, '#f43f5e');
+                gradBot.addColorStop(1, '#e11d48');
+                flappyCtx.fillStyle = gradBot;
+                flappyCtx.beginPath();
+                flappyCtx.roundRect(p.x, p.topH + p.gap, 45, flappyCanvas.height - (p.topH + p.gap), [10, 10, 0, 0]);
+                flappyCtx.fill();
+            });
+
+            // Draw Liquid Bird (Glowing Orb)
+            flappyCtx.shadowBlur = 15;
+            flappyCtx.shadowColor = '#fbbf24';
+            const birdGrad = flappyCtx.createRadialGradient(flappyBird.x, flappyBird.y, 2, flappyBird.x, flappyBird.y, flappyBird.radius);
+            birdGrad.addColorStop(0, '#fef08a');
+            birdGrad.addColorStop(1, '#f59e0b');
+            flappyCtx.fillStyle = birdGrad;
+            flappyCtx.beginPath();
+            flappyCtx.arc(flappyBird.x, flappyBird.y, flappyBird.radius, 0, Math.PI * 2);
+            flappyCtx.fill();
+            flappyCtx.shadowBlur = 0;
+
+            if (collided) {
+                gameOverFlappy();
+                return;
+            }
+
+            flappyAnimFrame = requestAnimationFrame(loopFlappyGame);
+        }
+
+        function gameOverFlappy() {
+            isFlappyRunning = false;
+            const overlay = document.getElementById('flappy-overlay');
+            const title = document.getElementById('flappy-status-title');
+            const desc = document.getElementById('flappy-status-desc');
+            if (overlay) {
+                overlay.classList.remove('hidden');
+                title.innerText = 'THUA CUỘC!';
+                desc.innerText = `Điểm số ván này: ${flappyScore}. Nhấn nút bên dưới để thử lại.`;
+            }
+        }
+
+        function switchGameTab(gameType) {
+            playSound('click');
+            const flappyView = document.getElementById('game-view-flappy');
+            const tttView = document.getElementById('game-view-tictactoe');
+            const flappyBtn = document.getElementById('game-tab-btn-flappy');
+            const tttBtn = document.getElementById('game-tab-btn-ttt');
+
+            if (gameType === 'flappy') {
+                flappyView.classList.remove('hidden');
+                tttView.classList.add('hidden');
+                flappyBtn.className = 'flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-amber-500/30 text-amber-200 font-semibold text-left border border-amber-400/40 shadow-sm transition';
+                tttBtn.className = 'flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-white/10 text-slate-300 text-left transition';
+            } else {
+                flappyView.classList.add('hidden');
+                tttView.classList.remove('hidden');
+                tttBtn.className = 'flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-amber-500/30 text-amber-200 font-semibold text-left border border-amber-400/40 shadow-sm transition';
+                flappyBtn.className = 'flex items-center gap-2.5 px-3 py-2.5 rounded-xl hover:bg-white/10 text-slate-300 text-left transition';
+            }
+        }
+
+        /* GAME 2: TIC-TAC-TOE CARO VS AI */
+        let tttState = ['', '', '', '', '', '', '', '', ''];
+        let isTTTActive = true;
+
+        function makeTTTMove(index) {
+            if (tttState[index] !== '' || !isTTTActive) return;
+
+            playSound('click');
+            tttState[index] = 'X';
+            renderTTTBoard();
+
+            if (checkTTTWinner('X')) {
+                document.getElementById('ttt-status').innerText = '🎉 Bạn đã thắng AI!';
+                isTTTActive = false;
+                return;
+            }
+
+            if (tttState.every(c => c !== '')) {
+                document.getElementById('ttt-status').innerText = '🤝 Trận đấu hòa!';
+                isTTTActive = false;
+                return;
+            }
+
+            // AI turn
+            isTTTActive = false;
+            document.getElementById('ttt-status').innerText = 'AI đang suy nghĩ...';
+
+            setTimeout(() => {
+                const emptyCells = tttState.map((val, idx) => val === '' ? idx : null).filter(val => val !== null);
+                if (emptyCells.length > 0) {
+                    const aiMove = emptyCells[Math.floor(Math.random() * emptyCells.length)];
+                    tttState[aiMove] = 'O';
+                    renderTTTBoard();
+
+                    if (checkTTTWinner('O')) {
+                        document.getElementById('ttt-status').innerText = '🤖 AI đã chiến thắng!';
+                        return;
+                    }
+
+                    if (tttState.every(c => c !== '')) {
+                        document.getElementById('ttt-status').innerText = '🤝 Trận đấu hòa!';
+                        return;
+                    }
+
+                    document.getElementById('ttt-status').innerText = 'Lượt của bạn (X)';
+                    isTTTActive = true;
+                }
+            }, 400);
+        }
+
+        function checkTTTWinner(player) {
+            const winPatterns = [
+                [0,1,2], [3,4,5], [6,7,8],
+                [0,3,6], [1,4,7], [2,5,8],
+                [0,4,8], [2,4,6]
+            ];
+            return winPatterns.some(pattern => {
+                return pattern.every(idx => tttState[idx] === player);
+            });
+        }
+
+        function renderTTTBoard() {
+            const cells = document.querySelectorAll('.ttt-cell');
+            cells.forEach((cell, idx) => {
+                cell.innerText = tttState[idx];
+                if (tttState[idx] === 'X') {
+                    cell.className = 'ttt-cell w-20 h-20 rounded-2xl bg-cyan-500/20 text-3xl font-bold text-cyan-300 flex items-center justify-center border border-cyan-400/40 shadow-inner';
+                } else if (tttState[idx] === 'O') {
+                    cell.className = 'ttt-cell w-20 h-20 rounded-2xl bg-rose-500/20 text-3xl font-bold text-rose-300 flex items-center justify-center border border-rose-400/40 shadow-inner';
+                } else {
+                    cell.className = 'ttt-cell w-20 h-20 rounded-2xl bg-white/5 hover:bg-white/15 text-3xl font-bold text-slate-100 flex items-center justify-center border border-white/10 transition';
+                }
+            });
+        }
+
+        function resetTTTGame() {
+            tttState = ['', '', '', '', '', '', '', '', ''];
+            isTTTActive = true;
+            document.getElementById('ttt-status').innerText = 'Lượt của bạn (X)';
+            renderTTTBoard();
         }
 
         /* Power Menu & Shutdown Animation Effects */
@@ -1016,7 +1435,6 @@
             }
         }
 
-        /* Execute Shutdown / Restart Sequence */
         function executePowerAction(action) {
             if (isPowerTransitioning) return;
             isPowerTransitioning = true;
@@ -1028,17 +1446,14 @@
             const shutdownScreen = document.getElementById('shutdown-screen');
             const powerCard = document.getElementById('power-card');
 
-            // 1. AN CAI CARD THONG BAO TRUOC, SAU DO MOI CHAY HIEU UNG HE THONG
             if (powerCard) {
                 powerCard.style.opacity = '0';
                 powerCard.style.transform = 'scale(0.9)';
                 powerCard.style.transition = 'all 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
             }
 
-            // Play Shutdown Audio
             playSound('shutdown');
 
-            // 2. Chờ card ẩn hoàn toàn (250ms) rồi mới kích hoạt hiệu ứng thu gom Top Panel, Dock, Icons & Windows
             setTimeout(() => {
                 if (shutdownScreen) shutdownScreen.classList.add('opacity-0');
 
@@ -1046,13 +1461,11 @@
                 if (bottomDock) bottomDock.classList.add('power-dock-hidden');
                 if (desktopIcons) desktopIcons.classList.add('power-icons-hidden');
 
-                // Close all app windows smoothly
                 document.querySelectorAll('.app-window').forEach(win => {
                     win.classList.add('window-closing');
                     setTimeout(() => win.classList.add('hidden'), 300);
                 });
 
-                // 3. Tiến hành chuyển hướng/tắt sau khi các hiệu ứng hoàn tất (800ms)
                 setTimeout(() => {
                     if (action === 'restart') {
                         const restartScreen = document.getElementById('restart-screen');
@@ -1095,7 +1508,7 @@
             }, 250);
         }
 
-        /* Persistent Wallpaper Upload Engine (localStorage) */
+        /* Persistent Wallpaper Engine */
         function handleWallpaperUpload(event) {
             const file = event.target.files[0];
             if (!file) return;
@@ -1110,7 +1523,6 @@
                     osBody.style.backgroundPosition = 'center';
                 }
 
-                // Save to localStorage for F5 persistence
                 try {
                     localStorage.setItem('win12_custom_wallpaper', bgDataUrl);
                 } catch(err) {
@@ -1227,7 +1639,6 @@
         function togglePlayPause() {
             const audioPlayer = document.getElementById('audio-player');
             if (!audioPlayer.src) {
-                // Default track fallback if empty
                 audioPlayer.src = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
             }
             if (isPlaying) {
